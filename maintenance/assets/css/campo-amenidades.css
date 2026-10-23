@@ -1,0 +1,104 @@
+/* Campo Ferrari - Estrutura e comodidades no bloco "Conheça o terreno".
+ * Estilos isolados para manter as seções, o carrossel e as reservas originais.
+ */
+#campo .campo-amenities {
+  margin-top: clamp(40px, 5vw, 75px);
+  padding-top: clamp(30px, 4vw, 52px);
+  border-top: 1px solid rgba(255, 165, 16, .2);
+}
+#campo .campo-amenities-intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px 35px;
+  flex-wrap: wrap;
+  margin-bottom: 23px;
+}
+#campo .campo-amenities-intro .eyebrow {
+  margin-bottom: 12px;
+}
+#campo .campo-amenities-intro h3 {
+  margin: 0;
+  color: #f6f4ed;
+  font-size: clamp(1.8rem, 3.2vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.12;
+}
+#campo .campo-amenities-lead {
+  color: #c4bfb5;
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 350px;
+  margin: 0;
+}
+#campo .campo-amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#campo .campo-amenity {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  min-height: 154px;
+  padding: 23px 18px;
+  background: linear-gradient(150deg, #24211b, #171716 80%);
+  border: 1px solid rgba(255, 165, 16, .16);
+  border-radius: 13px;
+  box-shadow: inset 0 1px rgba(255,255,255,.04), 0 12px 22px rgba(0,0,0,.17);
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+#campo .campo-amenity:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 165, 16, .52);
+  box-shadow: inset 0 1px rgba(255,255,255,.07), 0 17px 25px rgba(0,0,0,.3);
+}
+#campo .campo-amenity-icon {
+  display: grid;
+  flex: 0 0 43px;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 11px;
+  font-size: 23px;
+  line-height: 1;
+  background: rgba(255, 165, 16, .11);
+  border: 1px solid rgba(255, 165, 16, .17);
+}
+#campo .campo-amenity-copy {
+  min-width: 0;
+}
+#campo .campo-amenity h4 {
+  margin: 1px 0 9px;
+  color: #f8f5ee;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+#campo .campo-amenity p {
+  color: #c7c0b5;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 1199px) {
+  #campo .campo-amenities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #campo .campo-amenity { min-height: 130px; }
+}
+@media (max-width: 575px) {
+  #campo .campo-amenities-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  #campo .campo-amenity { min-height: auto; padding: 17px 15px; }
+  #campo .campo-amenity-icon { flex-basis: 40px; width: 40px; height: 40px; }
+  #campo .campo-amenities-lead { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #campo .campo-amenity, #campo .campo-amenity:hover { transition: none; transform: none; }
+}

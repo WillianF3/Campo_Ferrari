@@ -1,0 +1,8 @@
+Options -Indexes
+<FilesMatch "^(?:bootstrap|schema|config(?:\.[^/]*)?)\.php$">
+Require all denied
+</FilesMatch>
+RewriteEngine On
+RewriteRule ^(?:bootstrap|schema|config(?:\.[^/]*)?)\.php$ - [F,L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L,QSA]

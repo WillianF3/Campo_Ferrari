@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+**/config.php
+**/db.php
+*.log
+*.zip
+node_modules/
+vendor/

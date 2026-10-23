@@ -1,0 +1,46 @@
+CAMPO FERRARI V9 — CORRECAO DO ERRO #1044 (23/10/2026)
+
+ERRO ORIGINAL:
+#1044 Acesso negado ... ao banco information_schema durante PREPARE.
+
+CAUSA:
+A migracao antiga consultava information_schema e executava PREPARE.
+Dependendo das permissoes e do banco selecionado no phpMyAdmin da Hostinger,
+a hospedagem pode negar a consulta. A API tambem consultava information_schema.
+
+CORRECOES FEITAS:
+- API utiliza SHOW COLUMNS nas tabelas do proprio site (sem information_schema).
+- /api/health agora valida 5 colunas sem information_schema.
+- Admin > Configuracoes ganhou botao Verificar banco e Aplicar atualizacao do MySQL.
+- A migracao exige admin autenticado, token CSRF e confirmacao de backup.
+- A migracao ignora colunas ja existentes, nao apaga registros e pode ser repetida.
+- SQL manual simples (sem PREPARE), separado por coluna para evitar erro de duplicidade.
+
+PASSOS RECOMENDADOS (SEM ACESSO SSH):
+1) Entre na Hostinger > Bancos de Dados > phpMyAdmin e exporte BACKUP.
+2) Confira o banco: phpMyAdmin > aba SQL: SELECT DATABASE() AS banco_atual;
+3) Confira se corresponde ao banco em api/config.local.php, SEM DIVULGAR SENHA.
+4) Copie os arquivos do ZIP para public_html, preservando api/config.local.php.
+   IMPORTANTE: este ZIP esta preparado com os arquivos DIRETAMENTE na raiz.
+5) Entre em https://campoferrari.com.br/admin/ com sua conta administrativa.
+6) Abra Configuracoes > Manutencao do MySQL — Listas > Verificar banco.
+7) Marque a confirmacao de backup e clique Aplicar atualizacao do MySQL.
+8) Ao concluir, teste https://campoferrari.com.br/api/health :
+   schema: ok | database: connected | status: ok
+9) Teste o cadastro de Lista Fechada e Lista Aberta com nomes de participantes.
+
+ALTERNATIVA SEM O BOTAO DO PAINEL:
+- Importe SOMENTE 00_VERIFICAR_BANCO_SEM_ALTERAR.sql primeiro.
+- Confira na resposta quais colunas faltam.
+- Em colunas_individuais/, aplique APENAS os .sql das colunas ausentes.
+- Nao rode a mesma alteracao duas vezes.
+- O arquivo 2026-10-23_corrigir_nomes_listas.sql agora apenas verifica
+  o esquema. Execute os ALTERs apenas dos arquivos individuais necessarios.
+
+OBSERVACOES:
+- Nao rode scripts no banco information_schema, mysql, performance_schema.
+- Se ocorrer falha de permissão ALTER TABLE, confirme os privilegios do usuario
+  selecionado na Hostinger, sem tentar driblar as restricoes.
+- DDL realiza COMMIT implicito no MySQL: nao ha rollback automatico.
+- O recurso necessita que existam as tabelas base de ambas as listas.
+- Sem acesso ao banco da Hostinger nao e possivel atestar a migracao em producao.

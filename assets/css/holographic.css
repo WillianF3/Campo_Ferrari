@@ -1,0 +1,137 @@
+/* Campo Ferrari — holographic hero cards. Palette: gold, amber, bronze and graphite.
+   This file is scoped to hero photos; Bootstrap .card and the gallery are untouched.
+   Overlay patterns are drawn in CSS and do not depend on remote assets. */
+.hero-visual .hero-photo.holo-card {
+  --holo-x: 50%;
+  --holo-y: 50%;
+  --holo-rotate-x: 0deg;
+  --holo-rotate-y: 0deg;
+  --holo-lift: 0px;
+  isolation: isolate;
+  z-index: 1;
+  border-color: #3c301e;
+  background: #14110c;
+  box-shadow: 0 24px 15px -12px #000b, 0 36px 65px #0009,
+    0 0 0 1px #d9a44356, inset 0 1px #efc4766b;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease, border-color .3s ease;
+  will-change: auto;
+}
+.hero-visual .hero-photo-main.holo-card {
+  transform: rotateZ(4deg) perspective(1000px)
+    rotateY(var(--holo-rotate-y)) rotateX(var(--holo-rotate-x))
+    translateY(var(--holo-lift));
+}
+.hero-visual .hero-photo-small.holo-card {
+  z-index: 2;
+  border-color: #ffac20;
+  transform: rotateZ(-7deg) perspective(1000px)
+    rotateY(var(--holo-rotate-y)) rotateX(var(--holo-rotate-x))
+    translateY(var(--holo-lift));
+}
+.hero-visual .hero-photo.holo-card img {
+  position: relative;
+  z-index: 0;
+  display: block;
+  filter: contrast(1.06) saturate(1.08);
+  transition: filter .35s ease;
+}
+/* A spot reflection that tracks the cursor; warm hues replace pink and blue. */
+.hero-visual .holo-card .holo-bg,
+.hero-visual .holo-card .holo-lines,
+.hero-visual .holo-card .circles {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity .3s ease;
+}
+.hero-visual .holo-card .holo-bg {
+  opacity: .17;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse 64% 54% at var(--holo-x) var(--holo-y),
+      #fff2cccf 0%, #ffc25288 15%, #db861a44 33%, transparent 75%),
+    linear-gradient(119deg,
+      transparent 13%, #ad681336 32%, #ffe29c99 43%,
+      #d4842455 51%, transparent 70%);
+}
+.hero-visual .holo-card .holo-lines {
+  opacity: .16;
+  mix-blend-mode: screen;
+  background:
+    repeating-linear-gradient(118deg,
+      transparent 0 14px, #ffe1a92d 15px, transparent 17px, transparent 29px),
+    linear-gradient(105deg,transparent 28%,#ffedba77 50%,transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at var(--holo-x) var(--holo-y),
+     #000 0%,transparent 85%);
+  mask-image: radial-gradient(ellipse 90% 90% at var(--holo-x) var(--holo-y),
+     #000 0%,transparent 85%);
+}
+.hero-visual .holo-card .circles {
+  opacity: .075;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle, #ffdb86 1.2px, transparent 1.8px) 0 0 / 19px 19px;
+  -webkit-mask-image: linear-gradient(140deg,transparent 2%,#000 55%,transparent 98%);
+  mask-image: linear-gradient(140deg,transparent 2%,#000 55%,transparent 98%);
+}
+.hero-visual .hero-photo.holo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px #ffc86b55,
+    inset 0 0 28px #ffc55e14;
+  transition: box-shadow .3s ease;
+}
+.hero-visual .hero-photo.holo-card figcaption {
+  z-index: 5;
+  color: #fff9eb;
+  text-shadow: 0 2px 8px #000;
+}
+/* Hover: stronger gold diffraction and a tactile lift. */
+@media (hover: hover) and (pointer: fine) {
+  .hero-visual .hero-photo.holo-card.is-holo-active {
+    --holo-lift: -7px;
+    z-index: 5;
+    border-color: #ffcc71;
+    box-shadow: 0 32px 24px -15px #000d, 0 42px 80px #000d,
+      0 0 28px #ffb42f38, 0 0 0 1px #ffd177a6;
+  }
+  .hero-visual .hero-photo.holo-card.is-holo-active .holo-bg { opacity: .56; }
+  .hero-visual .hero-photo.holo-card.is-holo-active .holo-lines { opacity: .43; }
+  .hero-visual .hero-photo.holo-card.is-holo-active .circles { opacity: .23; }
+  .hero-visual .hero-photo.holo-card.is-holo-active img {
+    filter: contrast(1.08) saturate(1.12);
+  }
+  .hero-visual .hero-photo.holo-card.is-holo-active::after {
+    box-shadow: inset 0 0 0 1px #ffdfa7a8,
+      inset 0 0 44px #ffc55e26;
+  }
+}
+/* No hover dependency on phones: preserve the photo collage and dark/gold frame. */
+@media (hover: none), (pointer: coarse) {
+  .hero-visual .hero-photo.holo-card { transition: none; }
+  .hero-visual .holo-card .holo-bg { opacity: .12; }
+  .hero-visual .holo-card .holo-lines { opacity: .08; }
+  .hero-visual .holo-card .circles { opacity: .04; }
+}
+@media (max-width: 650px) {
+  .hero-visual .hero-photo-main.holo-card { transform: rotateZ(4deg); }
+  .hero-visual .hero-photo-small.holo-card { transform: rotateZ(-7deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual .hero-photo.holo-card,
+  .hero-visual .hero-photo.holo-card.is-holo-active {
+    transition: none !important;
+    transform: none !important;
+  }
+  .hero-visual .holo-card .holo-bg,
+  .hero-visual .holo-card .holo-lines,
+  .hero-visual .holo-card .circles { transition: none !important; }
+  .hero-visual .holo-card .holo-bg { opacity: .12 !important; }
+  .hero-visual .holo-card .holo-lines { opacity: .08 !important; }
+  .hero-visual .holo-card .circles { opacity: .04 !important; }
+}

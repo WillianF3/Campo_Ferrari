@@ -1,0 +1,22 @@
+/* Cadastro de interesse fechado: paridade com lista aberta, sem afetar o fluxo detalhado. */
+.cf-booking .cf-closed-interest {padding:28px 36px 34px;background:linear-gradient(125deg,rgba(255,173,39,.055),transparent 65%);}
+.cf-booking .cf-closed-interest .cf-stage-title h4 {font-size:clamp(22px,2.7vw,27px)}
+.cf-booking .cf-closed-interest form select {display:block;width:100%;min-height:42px;padding:11px 12px;background:#342e28;border:1px solid #927b59;border-radius:5px;color:#fff9ee;box-sizing:border-box;color-scheme:dark;font-size:13px}
+.cf-booking .cf-closed-interest form select:disabled {opacity:.65}
+.cf-booking .cf-closed-interest .cf-interest-period-status {margin:0 0 21px;color:#d6c1a4}
+.cf-booking .cf-closed-interest .cf-form-grid {align-items:start}
+.cf-booking .cf-closed-interest .cf-interest-success {padding:0}
+.cf-booking .cf-advanced-booking {border-top:1px solid #806a4e;background:rgba(13,12,11,.11)}
+.cf-booking .cf-advanced-booking>summary {display:flex;align-items:center;justify-content:space-between;gap:16px;padding:23px 36px;color:#f3e4d2;cursor:pointer;list-style:none;font-weight:700;line-height:1.55;outline-offset:-4px}
+.cf-booking .cf-advanced-booking>summary::-webkit-details-marker {display:none}
+.cf-booking .cf-advanced-booking>summary:before {content:'+';color:#ffae24;font-size:23px;flex-shrink:0;margin-right:4px}
+.cf-booking .cf-advanced-booking[open]>summary:before {content:'−'}
+.cf-booking .cf-advanced-booking>summary strong {color:#ffbd4c;font-size:13px}
+.cf-booking .cf-advanced-booking>summary:hover {background:rgba(255,171,25,.08)}
+.cf-booking .cf-advanced-booking>summary:focus-visible {outline:3px solid #ffc65b}
+.cf-booking .cf-advanced-help {color:#d0bc9f;margin:0 36px;padding:0 0 16px;font-size:12px;line-height:1.6}
+@media(max-width:670px){
+ .cf-booking .cf-closed-interest {padding:21px 16px 25px}
+ .cf-booking .cf-advanced-booking>summary {padding:19px 16px;flex-direction:column;align-items:flex-start;gap:4px}
+ .cf-booking .cf-advanced-help {margin:0 16px}
+}

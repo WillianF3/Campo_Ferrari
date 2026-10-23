@@ -1,0 +1,205 @@
+/*
+ * Campo Ferrari — paleta grafite quente (2026-10-23)
+ * Identidade extraída do logo: âmbar/laranja, preto e detalhes tricolores.
+ * Esta camada visual vem POR ÚLTIMO. Não modifica HTML, JS, PHP nem regras
+ * de visibilidade, estados/seleção, calendário ou valores do agendamento.
+ */
+:root {
+  --bg: #302b25;
+  --surface: #42382d;
+  --text: #fff8ef;
+  --muted: #e0d5c7;
+  --accent: #ffab19;
+  --border: #6a5844;
+  --cf-theme-ink: #28231e;
+  --cf-theme-panel: #4a3e31;
+  --cf-theme-panel-raised: #534536;
+  --cf-theme-line: #77614b;
+  color-scheme: dark;
+}
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 72% 600px at 84% 0%, rgba(255,171,25,.08),transparent 78%);
+  color: var(--text);
+}
+/* Cabeçalho permanece escuro o suficiente para destacar o logo. */
+.site-header {
+  background: rgba(40,34,28,.96);
+  border-bottom: 1px solid rgba(245,174,69,.27);
+  box-shadow: 0 7px 25px rgba(18,14,10,.15);
+}
+.navbar-dark .navbar-nav .nav-link, .site-header .nav-link { color: #e8ded2; }
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus,
+.site-header .nav-link:hover { color: #ffbe53; }
+.site-header .brand-sub { color: #e2cab0; }
+.btn-accent, .hero-cinematic-cta { background-color: #ffab19; border-color: #ffab19; color: #241708; }
+.btn-accent:hover, .btn-accent:focus { background-color: #ffc05d; border-color: #ffc05d; color: #241708; }
+.btn-outline-light { border-color: #b8a18a; color: #fff8ef; }
+.btn-outline-light:hover { background: #f6e5d0; color: #352719; }
+/* O hero mantém contraste cinematográfico, mas reduz o preto absoluto. */
+.hero.hero-cinematic {
+  background: radial-gradient(ellipse at 52% 89%, rgba(255,168,41,.23), transparent 52%),
+              linear-gradient(180deg, #29231d 0%, #211c17 54%, #362a1e 100%);
+  border-bottom-color: rgba(255,171,25,.4);
+}
+.hero.hero-cinematic::before { opacity: .23; filter: grayscale(.8) contrast(1.2); }
+.hero.hero-cinematic::after {
+  background: radial-gradient(ellipse 70% 44% at 51% 58%, rgba(23,17,12,.18), transparent),
+              linear-gradient(90deg,rgba(27,21,16,.46),transparent 40%,transparent 62%,rgba(27,21,16,.46));
+}
+.hero-cinematic-issue { color: #e0d0bc; }
+.hero-cinematic-subtitle { color: #eee1cf; }
+.hero-cinematic-location, .hero-cinematic-scroll { color: #e5d8c6; }
+.manifesto { background: #423528; border-bottom: 1px solid var(--cf-theme-line); }
+/* Alternância de superfícies mais claras para separar as seções. */
+.section { background-color: #342f28; }
+.gallery-editorial, .section.gallery-editorial {
+  background: radial-gradient(ellipse 62% 50% at 50% 0%,rgba(255,169,38,.13),transparent), #373128;
+}
+#campo { background: linear-gradient(145deg,#353029 0%,#39332b 58%,#332d26 100%); }
+#modalidades, #agendar { background: linear-gradient(160deg,#41362c,#3a3129 70%,#44382b); }
+.section.steps { background: #362e26; }
+#contato { background: #3d342a; }
+#duvidas { background: #342e27; }
+.section h2, .section h3, .section h4 { color: #fff9f0; }
+.section .muted, .section-heading .muted { color: #e2d6c8; }
+.eyebrow.text-accent, .text-accent { color: #ffb12f!important; }
+.text-link { color: #ffbd50; }
+.text-link:hover { color: #ffe1a1; }
+.feature-row { border-bottom-color: #756452; }
+.feature-row p { color: #e0d6c9; }
+/* Ilustração do campo e comodidades: tons terrosos mais abertos. */
+.field-art { border-color: #8b865e; box-shadow: inset 0 0 40px rgba(9,16,8,.17),0 16px 38px rgba(20,14,8,.22); }
+#campo .campo-amenities { border-top-color: rgba(255,183,77,.42); }
+#campo .campo-amenities-intro h3 { color: #fff8ed; }
+#campo .campo-amenities-lead { color: #e2d7c7; }
+#campo .campo-amenity {
+  background: linear-gradient(145deg,#504335 0%,#40362c 95%);
+  border-color: #766049;
+  box-shadow: inset 0 1px rgba(255,244,219,.1),0 10px 24px rgba(20,14,8,.13);
+}
+#campo .campo-amenity:hover { border-color:#ffc05c; box-shadow: 0 15px 28px rgba(24,16,7,.18); }
+#campo .campo-amenity-icon { background: rgba(255,169,38,.2); border-color:rgba(255,196,91,.34); }
+#campo .campo-amenity h4 { color: #fff8ed; }
+#campo .campo-amenity p { color: #e5d9cb; }
+/* Carrossel editorial: imagem continua destacada, legenda com mais luz. */
+.gallery-story .gallery-viewport {
+  background: #443729;
+  border-color: #9d763f;
+  box-shadow: inset 0 1px rgba(255,230,184,.26),0 18px 50px rgba(22,15,8,.25);
+}
+.gallery-image-frame { background: #27251f; }
+.gallery-story .gallery-slide:not(:nth-of-type(2)) figcaption {
+  background: radial-gradient(ellipse at 95% 0%,rgba(255,174,58,.16),transparent 63%),
+              linear-gradient(130deg,#463c30,#41382e 70%,#4a3a29);
+}
+.gallery-story .gallery-slide:nth-of-type(2) figcaption {
+  background: radial-gradient(circle at 92% 5%,rgba(255,189,82,.32),transparent 48%),
+              linear-gradient(130deg,#62472c,#4e3927 60%,#453326);
+}
+.gallery-story .gallery-slide p, .gallery-story .gallery-slide:not(:nth-of-type(2)) p,
+.gallery-story .gallery-slide:nth-of-type(2) p { color: #f0e0cd; }
+.gallery-story figcaption small, .gallery-story .gallery-slide:not(:nth-of-type(2)) small { color: #dbc5a5; }
+.gallery-hint-3d { color: #e1d4c2; }
+.gallery-meta .gallery-counter { color: #ffd38b; }
+/* Experiências: cards, precificação e botões. */
+.experience-card {
+  background: linear-gradient(150deg,#544536 0%,#473c30 54%,#3c342b 100%);
+  border-color: #80674c;
+  box-shadow: inset 0 1px rgba(255,238,202,.14),0 14px 28px rgba(24,17,10,.16);
+}
+.experience-card.featured { border-color: #e2a03a; box-shadow: inset 0 1px rgba(255,227,158,.16),0 14px 30px rgba(24,17,10,.2); }
+.experience-card:hover,.experience-card:focus-within { border-color: #ffc365; box-shadow:0 20px 33px rgba(26,18,10,.2); }
+.experience-card p, .experience-card ul { color: #ebdfd1; }
+#modalidades .experience-pricing-status {
+  background: rgba(255,182,65,.12);
+  border-left-color: #ffb12f;
+  color: #f1e6d5;
+}
+#modalidades .experience-pricing-status.is-warning { background: rgba(255,195,92,.13); }
+#modalidades .price-live-value { color: #fff8ee; }
+#modalidades .price-live-detail { color: #e7d5bd; }
+#modalidades .price-unavailable .price-live-value { color:#ffe2a3; }
+/* Etapas, contato, mapa, perguntas. */
+.steps .col-md-4 { border-top-color: #92734e; }
+.contact-note { border-left-color: #ffb12f; }
+.contact-links a { border-bottom-color: #756149; }
+.map-panel {
+  border-color: #80684c;
+  background: linear-gradient(150deg,#514231,#3f342a);
+  box-shadow: 0 14px 34px rgba(22,14,8,.16);
+}
+.map-panel-heading strong { color: #fff9ed; }
+.map-panel-heading small { color: #eadbc9; }
+.faq .faq-item { border-bottom-color: #79644e; }
+.faq .faq-item:hover,.faq .faq-item[open] { border-color: #d49b43; background: linear-gradient(90deg,rgba(255,170,34,.12),transparent 72%); }
+.faq .faq-answer p { color: #e6dbd0; }
+.faq .faq-item[open]>summary { color: #ffcc7b; }
+/* Agendamento: clareza sem trocar estados nem cálculos do wizard. */
+.cf-booking {
+  --cf-border: #816b50;
+  --cf-panel: #564837;
+  --cf-base: #3e3329;
+  background: linear-gradient(145deg,#4a3b2f,#40362c);
+  border-color: #a58150;
+  box-shadow: 0 19px 40px rgba(25,16,8,.18);
+}
+.cf-booking-top p, .cf-stage-title p, .cf-stage>p,
+.cf-help, .cf-muted { color: #e7d9c6; }
+.cf-overline, .cf-field-heading { color: #ffc36d; }
+.cf-live-status { border-color: #987653; color: #f2d7ac; }
+.cf-mode-tabs { background: #4b3c2e; border-color: #816a4f; }
+.cf-mode { color: #ebdfcd; }
+.cf-mode.is-active { background: linear-gradient(135deg,#74502b,#614226); border-color: #e7ad57; color: #ffe1a6; }
+.cf-mode:hover:not(.is-active) { background: #64503c; color: #fff; }
+.cf-steps li { color: #d8c7b2; }
+.cf-steps li:not(:last-child):after { background: #7d6650; }
+.cf-steps b { border-color: #9b8165; }
+.cf-calendar-wrap, .cf-period-panel { background: #4e4033; border-color: #8b7256; }
+.cf-calendar-head button { background: #66513b; border-color: #a18055; color: #ffe1a9; }
+.cf-weekdays span, .cf-legend { color: #e2d0b8; }
+.cf-calendar-day { background: #5a4a3a; border-color: #887057; color: #fff7e9; }
+.cf-calendar-day:hover:not(:disabled) { background: #7c5936; }
+.cf-calendar-day.is-selected { background: #ffad27; color: #211509; }
+.cf-period { background: #574736; border-color: #8b7256; color: #fff7eb; }
+.cf-period small, .cf-period em { color: #e3cbae; }
+.cf-period.is-selected { background: #79502a; border-color: #ffc16c; }
+.cf-actions { border-top-color: #8b7257; }
+.cf-secondary-btn,.cf-success-actions .cf-secondary-btn { background: #5f4d3c; border-color: #a0876e; color: #fff3e3; }
+.cf-secondary-btn:hover { background: #745634; color: #ffe0a1; }
+.cf-player-counter,.cf-equipment-item,.cf-summary { background: #4e4033; border-color: #806a52; }
+.cf-player-counter small { color: #e3d1bd; }
+.cf-counter output, .cf-summary strong { color: #fff8ee; }
+.cf-equipment-item>span { color: #ffda93; }
+.cf-equipment-item select,.cf-open input,.cf-open textarea,
+.cf-stage input:not([type="checkbox"]),.cf-stage textarea {
+  background: #352e28;
+  border-color: #a18668;
+  color: #fff8ed;
+  color-scheme: dark;
+}
+.cf-equipment-item select:focus, .cf-stage input:focus, .cf-open input:focus,
+.cf-stage textarea:focus { border-color: #ffbd58; }
+.cf-extra-item { border-bottom-color: #806a50; }
+.cf-extra-item strong { color: #fff3e4; }
+.cf-extra-item small { color: #ffd08a; }
+.cf-summary>div { border-bottom-color: #79644e; }
+.cf-summary span { color: #e4d4c2; }
+.cf-booking form label:not(.cf-privacy-check) { color: #f2e6d6; }
+.cf-privacy-check { color: #e7dac9; }
+.cf-open-events { background: #354936; border-color: #738d6a; }
+.cf-footer-note { background: #3a3027; color: #eadac5; border-top-color: #876d4e; }
+.cf-preference { background: #634a31; color: #ffe3bc; }
+/* Rodapé e páginas secundárias: unidade com a home. */
+footer { background: #28241f; border-top-color: #826342; }
+footer p, footer small { color: #dfd0c0; }
+.error-page { background: #302b25; }
+/* Tratamento mobile apenas de cores: layout original e scripts mantidos. */
+@media (max-width: 767px) {
+  .site-header { background: rgba(40,34,28,.98); }
+  .navbar-collapse { background: #28221c; border-color: #70553a; }
+  .gallery-story .gallery-slide figcaption { background-color: #45392c; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-card { transition: none; }
+}

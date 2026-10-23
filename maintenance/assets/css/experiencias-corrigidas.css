@@ -1,0 +1,53 @@
+/* Cards das experiências: leitura legível, estados de preço e foco de teclado. */
+#modalidades .experience-pricing-status {
+  margin: -6px 0 28px;
+  border-left: 3px solid #ffa510;
+  padding: 11px 15px;
+  background: rgba(255,165,16,.065);
+  color: #d9d5cd;
+  font-size: 13px;
+  line-height: 1.6;
+}
+#modalidades .experience-pricing-status.is-warning {
+  border-left-color: #ffd280;
+  background: rgba(255,210,128,.075);
+}
+#modalidades .experience-card .price-live {
+  font-size: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: auto 0 20px;
+  min-height: 80px;
+  line-height: 1.35;
+}
+#modalidades .price-live-value {
+  display: block;
+  font-size: clamp(18px, 1.9vw, 23px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: #f6f2ea;
+  overflow-wrap: anywhere;
+}
+#modalidades .price-live-detail {
+  font-size: 12px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #d2c9b8;
+}
+#modalidades .price-unavailable .price-live-value { color: #ffe0a1; }
+#modalidades .experience-card.is-selected {
+  outline: 2px solid #ffb02b;
+  outline-offset: 2px;
+}
+#modalidades .experience-card .btn:focus-visible { outline: 3px solid #ffd280; outline-offset: 4px; }
+#booking-title:focus { outline: none; }
+@media (max-width: 767px) {
+  #modalidades .experience-pricing-status { margin-top: 18px; }
+  #modalidades .experience-card .price-live { min-height: auto; margin-top: 22px; }
+  #modalidades .price-live-value { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #modalidades .experience-card,
+  #modalidades .experience-card:hover { transition: none !important; }
+}

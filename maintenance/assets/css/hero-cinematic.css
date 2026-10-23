@@ -1,0 +1,364 @@
+/* Campo Ferrari | Hero Airsoft – preto, grafite e amarelo Ferrari.
+   Seção independente: o menu, a galeria e o agendamento permanecem intactos.
+   Sem cartões/imagens em primeiro plano. CSS com responsividade e movimento acessível. */
+
+.hero.hero-cinematic {
+  --cf-ink: #0b0b0b;
+  --cf-coal: #171512;
+  --cf-gold: #ffa510;
+  --cf-warm: #ffc45c;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 756px;
+  padding: 0;
+  background:
+    radial-gradient(ellipse at 52% 90%, rgba(255, 165, 16, .12), transparent 47%),
+    linear-gradient(180deg, #100f0e 0%, #0d0d0d 56%, #1e1912 100%);
+  border-bottom: 1px solid rgba(255, 165, 16, .22);
+  color: #f8f7f4;
+}
+
+/* Fotografia de airsoft usada como textura, não como cartão sobre o conteúdo. */
+.hero.hero-cinematic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('../images/gallery/instagram-jogadores.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 45%;
+  opacity: .115;
+  filter: grayscale(1) contrast(1.45);
+  mask-image: linear-gradient(180deg, transparent, black 26%, black 90%, transparent);
+}
+
+.hero.hero-cinematic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transform: none;
+  background:
+    radial-gradient(ellipse 70% 40% at 51% 58%, rgba(0,0,0,.4), transparent),
+    linear-gradient(90deg, rgba(5,5,5,.65), transparent 38%, transparent 62%, rgba(5,5,5,.65));
+}
+
+.hero-cinematic-atmosphere {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 119px, rgba(255,255,255,.026) 120px),
+    linear-gradient(180deg, rgba(255,165,16,.025), transparent 50%);
+  opacity: .57;
+}
+
+.hero-cinematic-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 40%, rgba(255, 165, 16, .14), transparent 40%);
+  animation: cfAmbientGlow 9s ease-in-out infinite alternate;
+}
+
+.hero.hero-cinematic .hero-cinematic-stage {
+  position: relative;
+  z-index: 2;
+  max-width: 1480px;
+  min-height: 756px;
+  margin: auto;
+  padding: 32px 24px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-cinematic-masthead {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font: 800 10px/1.4 Arial,sans-serif;
+  letter-spacing: .2em;
+}
+.hero-cinematic-mark { display: inline-flex; align-items: center; gap: 10px; }
+.hero-cinematic-mark i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cf-gold);
+  box-shadow: 0 0 0 6px rgba(255,165,16,.09);
+  animation: cfDotPulse 2.8s ease-in-out infinite;
+}
+.hero-cinematic-mark > span { color: var(--cf-gold); }
+.hero-cinematic-issue { color: #a9a39a; text-align: right; }
+
+.hero-cinematic-topline {
+  margin-top: clamp(28px, 3.1vw, 45px);
+  text-align: center;
+  animation: cfReveal .7s ease-out both;
+}
+.hero-cinematic-topline p {
+  margin: 0;
+  color: #f6f3eb;
+  font-size: clamp(1.45rem, 2.8vw, 2.8rem);
+  line-height: 1.16;
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+.hero-cinematic-topline strong {
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: var(--cf-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+/* Tipografia monumental: espaçamento POSITIVO para não sobrepor as letras
+   condensadas da fonte Impact. O brilho atravessa apenas a palavra principal. */
+.hero-cinematic-wordmark {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 100%;
+  margin: clamp(14px, 2vw, 26px) 0 10px;
+  padding: .06em .03em .11em;
+  color: #fbf9f4;
+  text-align: center;
+  font-family: Impact, "Arial Black", "Arial Narrow", sans-serif;
+  font-size: clamp(3.2rem, 16.8vw, 15.6rem);
+  font-stretch: condensed;
+  font-weight: 900;
+  letter-spacing: .025em;
+  line-height: .93;
+  white-space: nowrap;
+  text-transform: uppercase;
+  user-select: none;
+  text-shadow: 0 12px 36px rgba(0,0,0,.26);
+  animation: cfWordmarkIn 1s cubic-bezier(.2,.75,.2,1) both;
+}
+.hero-cinematic-word {
+  position: relative;
+  display: block;
+  color: #fffaf0;
+  background: linear-gradient(112deg, #fffaf0 17%, #fffaf0 37%, #ffe2a8 47%, #ffffff 52%, #fffaf0 63%, #fffaf0 100%);
+  background-size: 270% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cfWordmarkSheen 7.5s ease-in-out 1.2s infinite;
+}
+.hero-cinematic-wordmark .hero-wordmark-dot {
+  position: relative;
+  flex-shrink: 0;
+  margin-left: .015em;
+  color: var(--cf-gold);
+  text-shadow: 0 0 22px rgba(255,165,16,.23);
+  animation: cfWordmarkDot 3.2s ease-in-out infinite;
+}
+/* Fio luminoso sob o lettering, sem bloquear outras seções. */
+.hero-cinematic-wordmark::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(62%, 800px);
+  height: 2px;
+  border-radius: 30px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(255,165,16,.45) 25%, #ffbd4d 50%, rgba(255,165,16,.45) 75%, transparent);
+  box-shadow: 0 0 18px rgba(255,165,16,.3);
+  opacity: .75;
+  animation: cfWordmarkUnderline 3.5s ease-in-out infinite;
+}
+
+.hero-cinematic-content {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  padding: 15px 16px 16px;
+  text-align: center;
+  animation: cfReveal .85s ease .12s both;
+}
+.hero-cinematic-content-rule {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.hero-cinematic-content-rule > span {
+  display: block;
+  width: min(12vw, 94px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,165,16,.64));
+}
+.hero-cinematic-content-rule > span:last-child { transform: rotate(180deg); }
+.hero-cinematic-content-rule > i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--cf-gold);
+  transform: rotate(45deg);
+}
+.hero-cinematic-eyebrow {
+  margin: 0 0 16px;
+  color: #c3b9a7;
+  font: 800 10px/1.6 Arial,sans-serif;
+  letter-spacing: .25em;
+}
+.hero-cinematic-eyebrow span { color: var(--cf-gold); }
+.hero.hero-cinematic .hero-cinematic-title {
+  margin: 0;
+  color: #f7f5ef;
+  font-family: Impact, "Arial Black", "Arial Narrow", sans-serif;
+  font-size: clamp(2.7rem, 4.2vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.01;
+  letter-spacing: -.025em;
+}
+.hero-cinematic-title span { color: var(--cf-gold); }
+.hero-cinematic-subtitle {
+  max-width: 620px;
+  margin: 12px auto 0;
+  color: #cec9c0;
+  font-size: clamp(.95rem, 1.1vw, 1.1rem);
+  line-height: 1.65;
+}
+.hero-cinematic-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin-top: 18px;
+}
+.hero.hero-cinematic .hero-cinematic-cta {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 17px 24px;
+  min-height: 53px;
+  overflow: hidden;
+  background: var(--cf-gold);
+  border: 1px solid #ffb73a;
+  border-radius: 8px;
+  box-shadow: 0 7px 0 #885308, 0 15px 30px rgba(0,0,0,.24);
+  color: #16110a;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .085em;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.hero.hero-cinematic .hero-cinematic-cta::before {
+  content: "";
+  position: absolute;
+  width: 35%;
+  inset: 0 auto 0 -45%;
+  transform: skewX(-26deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+  transition: left .7s ease;
+}
+.hero.hero-cinematic .hero-cinematic-cta:hover {
+  color: #16110a;
+  background: #ffc459;
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #885308, 0 20px 34px rgba(0,0,0,.3);
+}
+.hero.hero-cinematic .hero-cinematic-cta:hover::before { left: 125%; }
+.hero-cinematic-link {
+  color: #f2ece0;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  transition: color .2s ease;
+}
+.hero-cinematic-link span { margin-left: 6px; color: var(--cf-gold); }
+.hero-cinematic-link:hover { color: var(--cf-gold); }
+.hero.hero-cinematic a:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+.hero-cinematic-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  gap: 18px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 18px;
+  font: 800 10px/1.5 Arial,sans-serif;
+  letter-spacing: .13em;
+}
+.hero-cinematic-location { display: flex; align-items: center; gap: 9px; color: #c9c2b3; }
+.hero-cinematic-location-icon { font-size: 24px; line-height: .6; color: var(--cf-gold); }
+.hero-cinematic-scroll { display: inline-flex; gap: 12px; color: #d5c9b7; }
+.hero-cinematic-scroll span { color: var(--cf-gold); animation: cfArrowBop 1.8s ease-in-out infinite; }
+
+@keyframes cfReveal { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+@keyframes cfWordmarkIn { from { opacity:0; transform:translateY(25px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes cfWordmarkSheen {
+  0%, 15% { background-position: 100% 0; }
+  48%, 100% { background-position: 0% 0; }
+}
+@keyframes cfWordmarkDot {
+  0%, 100% { opacity: .8; text-shadow: 0 0 12px rgba(255,165,16,.12); }
+  50% { opacity: 1; text-shadow: 0 0 30px rgba(255,165,16,.58); }
+}
+@keyframes cfWordmarkUnderline {
+  0%, 100% { opacity: .35; transform: translateX(-50%) scaleX(.7); }
+  50% { opacity: .9; transform: translateX(-50%) scaleX(1); }
+}
+@keyframes cfDotPulse { 50% { box-shadow:0 0 0 12px rgba(255,165,16,0); } }
+@keyframes cfAmbientGlow { from { transform:translateX(-2%); opacity:.4; } to { transform:translateX(2%); opacity:1; } }
+@keyframes cfArrowBop { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
+
+@media (max-width: 767px) {
+  .hero.hero-cinematic { min-height: 715px; }
+  .hero.hero-cinematic .hero-cinematic-stage { min-height: 715px; padding: 24px 12px 22px; }
+  .hero-cinematic-masthead { gap: 10px; font-size: 8px; letter-spacing: .12em; }
+  .hero-cinematic-issue { max-width: 145px; font-size: 7px; }
+  .hero-cinematic-topline { margin-top: 65px; }
+  .hero-cinematic-topline p { font-size: clamp(1.35rem, 5.4vw, 2rem); }
+  .hero-cinematic-topline strong { text-underline-offset: 5px; }
+  .hero-cinematic-wordmark { margin-top: 56px; margin-bottom: 12px; font-size: clamp(3.1rem, 16.4vw, 8rem); letter-spacing: .015em; }
+  .hero-cinematic-content { padding: 8px 8px 18px; }
+  .hero-cinematic-content-rule { margin-bottom: 18px; }
+  .hero.hero-cinematic .hero-cinematic-title { font-size: clamp(2.25rem, 8.7vw, 3.4rem); }
+  .hero-cinematic-subtitle { max-width: 470px; font-size: .91rem; line-height: 1.6; }
+  .hero-cinematic-actions { margin-top: 23px; gap: 20px; }
+  .hero-cinematic-footer { align-items: center; gap: 10px; font-size: 8px; }
+}
+@media (max-width: 480px) {
+  .hero.hero-cinematic, .hero.hero-cinematic .hero-cinematic-stage { min-height: 715px; }
+  .hero-cinematic-topline { margin-top: 68px; }
+  .hero-cinematic-wordmark { font-size: 16.2vw; letter-spacing: .015em; margin-top: 47px; }
+  .hero-cinematic-eyebrow { font-size: 8px; letter-spacing: .15em; }
+  .hero.hero-cinematic .hero-cinematic-title { font-size: clamp(2rem, 8.3vw, 2.8rem); }
+  .hero-cinematic-actions { flex-direction: column; }
+  .hero.hero-cinematic .hero-cinematic-cta { width: min(100%, 335px); padding: 16px 18px; }
+  .hero-cinematic-footer { flex-direction: column; align-items: center; text-align: center; }
+  .hero-cinematic-scroll { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinematic-atmosphere::after,
+  .hero-cinematic-mark i,
+  .hero-cinematic-topline,
+  .hero-cinematic-wordmark,
+  .hero-cinematic-word,
+  .hero-cinematic-wordmark .hero-wordmark-dot,
+  .hero-cinematic-wordmark::after,
+  .hero-cinematic-content,
+  .hero-cinematic-scroll span { animation: none !important; }
+  .hero.hero-cinematic .hero-cinematic-cta { transition: none !important; }
+}

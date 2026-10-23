@@ -1,0 +1,18 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^(?:database|tests|tools|instalacao|maintenance)/ - [F,L,NC]
+RewriteRule ^api/(?:bootstrap|schema|config(?:\.[^/]*)?)\.php$ - [F,L,NC]
+</IfModule>
+<FilesMatch "(?i)(?:^\.|\.(?:sql|bak|backup|log|zip|env|ini|dist|md)$|^composer\.|^package(?:-lock)?\.json$)">
+Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+ErrorDocument 404 /404.html

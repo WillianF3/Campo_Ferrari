@@ -1,0 +1,23 @@
+CAMPO FERRARI V9 — HOSTINGER / ERRO MYSQL #1044 (23/10/2026)
+
+Este projeto preserva a estrutura e funcoes da versao v9 enviada.
+As alteracoes corrigem a verificacao do MySQL e oferecem migracao pelo admin.
+
+LEIA: CORRECAO_ERRO_1044_HOSTINGER_LEIA_PRIMEIRO.txt
+
+INSTALACAO:
+1. Exportar backup do MySQL e arquivos da public_html.
+2. Hostinger > Gerenciador de arquivos > public_html.
+3. Enviar o ZIP e EXTRAIR DIRETAMENTE em public_html (sem pasta interna).
+4. PRESERVAR api/config.local.php (nao esta incluido no pacote).
+5. Acessar o admin, entrar em Configuracoes > Manutencao do MySQL.
+6. Verificar estrutura, confirmar backup e aplicar apenas as colunas ausentes.
+7. Testar /api/health, reservar uma lista fechada e inscrever uma lista aberta.
+8. Se cache antigo permanecer, atualizar pagina sem cache.
+
+O arquivo SQL principal em database/migrations/ e apenas DIAGNOSTICO.
+Para migrar use o botao do admin, ou os arquivos de SQL individuais referentes
+as colunas que estao faltando no seu banco.
+
+TESTES: validacao estatica e de sintaxe (PHP/JS), e inspecao dos arquivos ZIP.
+Nao foi acessado ou alterado o banco real da Hostinger.

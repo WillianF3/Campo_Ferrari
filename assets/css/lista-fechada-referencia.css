@@ -1,0 +1,248 @@
+/*
+ * Lista fechada — calendário e turnos inspirados na referência enviada.
+ * Escopo exclusivo de #cf-closed para preservar o formulário da lista aberta.
+ * Esta folha deve ser carregada depois de paleta-ferrari-clara.css.
+ */
+#cf-closed {
+  --cf-closed-border: #8e7457;
+  --cf-closed-panel: #4f4033;
+  --cf-closed-cell: #594a3b;
+  --cf-closed-amber: #ffab1e;
+  --cf-closed-text: #fff5e7;
+}
+
+/* Cabeçalho compacto como o da referência, com espaçamento entre etapas. */
+#cf-closed .cf-steps {
+  padding: 25px 30px 0;
+  gap: 15px;
+}
+#cf-closed .cf-steps li {
+  min-width: 0;
+  color: #e7d6c3;
+  font-weight: 700;
+}
+#cf-closed .cf-steps li.is-active { color: #ffbd58; }
+#cf-closed .cf-steps b { width: 27px; height: 27px; }
+#cf-closed .cf-steps .is-active b {
+  background: var(--cf-closed-amber);
+  border-color: var(--cf-closed-amber);
+  color: #261506;
+}
+#cf-closed .cf-stage { padding: 25px 30px 30px; }
+#cf-closed #cf-step-1 .cf-stage-title { margin: 0 0 21px; }
+#cf-closed #cf-step-1 .cf-stage-title h4 {
+  color: #fff9f1;
+  font-size: clamp(19px, 2vw, 22px);
+  line-height: 1.25;
+  font-weight: 850;
+  margin-bottom: 7px;
+}
+#cf-closed #cf-step-1 .cf-stage-title p {
+  color: #f0e3d3;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Colunas 60/40 em telas médias — a regra antiga empilhava cedo demais. */
+#cf-closed .cf-date-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(270px, 1fr);
+  align-items: stretch;
+  gap: 18px;
+}
+#cf-closed .cf-calendar-wrap,
+#cf-closed .cf-period-panel {
+  min-width: 0;
+  background: var(--cf-closed-panel);
+  border: 1px solid var(--cf-closed-border);
+  border-radius: 8px;
+  padding: 15px;
+}
+#cf-closed .cf-calendar-head { margin-bottom: 12px; gap: 10px; }
+#cf-closed .cf-calendar-head strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff9ee;
+  text-align: center;
+}
+#cf-closed .cf-calendar-head button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 31px;
+  height: 31px;
+  background: #66513e;
+  border: 1px solid #ab8559;
+  border-radius: 5px;
+  color: #ffe1ae;
+  transition: background .16s ease, border-color .16s ease;
+}
+#cf-closed .cf-calendar-head button:hover:not(:disabled) {
+  background: #86633d;
+  border-color: #ffc573;
+}
+#cf-closed .cf-calendar-head button:disabled { opacity: .38; }
+#cf-closed .cf-weekdays,
+#cf-closed .cf-calendar-days { gap: 4px; }
+#cf-closed .cf-weekdays span {
+  color: #ead8c2;
+  font-size: 10px;
+  padding: 8px 0 9px;
+}
+#cf-closed .cf-calendar-day {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid #8b7257;
+  border-radius: 6px;
+  background: var(--cf-closed-cell);
+  color: var(--cf-closed-text);
+  line-height: 1.05;
+  font-weight: 800 !important;
+  font-size: clamp(11px, 1.13vw, 14px) !important;
+  gap: 4px;
+  transition: background .15s ease,border-color .15s ease;
+}
+#cf-closed .cf-calendar-day i { width: 5px; height: 5px; background: #74c889; }
+#cf-closed .cf-calendar-day:hover:not(:disabled) {
+  background: #77583b;
+  border-color: #ffcb71;
+}
+#cf-closed .cf-calendar-day.is-selected {
+  background: var(--cf-closed-amber);
+  color: #201407;
+  border-color: #ffd475;
+  box-shadow: inset 0 0 0 1px #ffd475;
+}
+#cf-closed .cf-calendar-day.is-selected i { background: #281703; }
+#cf-closed .cf-calendar-day.taken,
+#cf-closed .cf-calendar-day:disabled:not(.event) { opacity: .36; }
+#cf-closed .cf-calendar-day.event:not(:disabled) {
+  background: #46513a;
+  border-color: #749171;
+  color: #dcffe0;
+}
+#cf-closed .cf-calendar-day.event:not(:disabled):hover { background: #3e664c; }
+#cf-closed .cf-calendar-day small { font-size: clamp(6px, .69vw, 8px); }
+#cf-closed .cf-legend {
+  gap: 12px;
+  font-size: 10px;
+  margin-top: 15px;
+  color: #ead9c5;
+}
+#cf-closed .cf-legend .cf-key { width: 8px; height: 8px; }
+
+/* Painel da direita: cabeçalho, cartões de turno e orientação. */
+#cf-closed .cf-period-panel > .cf-field-heading {
+  color: #ffbd4d;
+  font-size: 10px;
+  letter-spacing: .15em;
+  font-weight: 900;
+  margin: 3px 0 11px;
+}
+#cf-closed .cf-selected-date {
+  font-size: 18px;
+  line-height: 1.25;
+  color: #fffaf4;
+  font-weight: 800;
+  margin-bottom: 17px;
+}
+#cf-closed .cf-periods { display: grid; grid-template-columns: 1fr; gap: 8px; }
+#cf-closed .cf-period {
+  background: #554636;
+  color: #fff7ec;
+  border: 1px solid #897058;
+  border-radius: 7px;
+  padding: 14px 13px;
+  min-height: 60px;
+}
+#cf-closed .cf-period b { font-size: 13px; color: #fff8eb; }
+#cf-closed .cf-period small,
+#cf-closed .cf-period em { font-size: 11px; color: #dfc7a7; }
+#cf-closed .cf-period:hover:not(:disabled) {
+  border-color: #ffd18b;
+  background: #6b4c30;
+}
+#cf-closed .cf-period.is-selected {
+  background: #7a4d2b;
+  border-color: #ffb941;
+  box-shadow: inset 0 0 0 1px rgba(255,185,65,.35);
+}
+#cf-closed .cf-period.is-selected em { color: #ffd28e; }
+#cf-closed .cf-period:disabled { opacity: .38; }
+#cf-closed .cf-period-panel .cf-help { margin-top: 13px; color: #eedac0; }
+#cf-closed #cf-step-1 .cf-actions {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top-color: #8a7257;
+}
+#cf-closed #cf-step-1 .cf-actions .btn {
+  background: var(--cf-closed-amber);
+  border-color: var(--cf-closed-amber);
+  border-radius: 6px;
+  color: #281906;
+  font-weight: 700;
+}
+#cf-closed #cf-step-1 .cf-actions .btn:hover:not(:disabled) {
+  background: #ffc35a;
+  border-color: #ffc35a;
+}
+#cf-closed #cf-step-1 .cf-actions .btn:disabled { opacity: .45; }
+
+/* Bootstrap reduz a largura do container a 720px em tablets; o calendário
+   precisa aproveitar a largura da tela para manter dois painéis legíveis. */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  #agendar > .container { max-width: calc(100% - 24px); }
+}
+@media (min-width: 760px) and (max-width: 900px) {
+  #cf-closed .cf-date-layout { grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr); }
+  #cf-closed .cf-periods { grid-template-columns: 1fr; }
+  #cf-closed .cf-period { flex-wrap: nowrap; }
+  #cf-closed .cf-period em { width: auto; }
+}
+@media (max-width: 759.98px) {
+  #cf-closed .cf-date-layout { grid-template-columns: minmax(0,1fr); gap: 14px; }
+  #cf-closed .cf-steps { padding: 19px 16px 0; gap: 8px; }
+  #cf-closed .cf-stage { padding: 20px 16px 23px; }
+  #cf-closed .cf-steps b { width: 26px; height: 26px; }
+  #cf-closed .cf-periods { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  #cf-closed .cf-period { flex-wrap: wrap; align-content: start; }
+  #cf-closed .cf-period em { width: 100%; }
+}
+@media (max-width: 540px) {
+  #cf-closed .cf-calendar-wrap,
+  #cf-closed .cf-period-panel { padding: 12px; }
+  #cf-closed .cf-calendar-day { font-size: 12px !important; }
+  #cf-closed .cf-calendar-day small { font-size: 6px; }
+  #cf-closed .cf-legend { gap: 8px; font-size: 9px; }
+  #cf-closed .cf-periods { grid-template-columns: 1fr; }
+  #cf-closed .cf-period { flex-wrap: nowrap; }
+  #cf-closed .cf-period em { width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #cf-closed .cf-calendar-day,
+  #cf-closed .cf-period { transition: none; }
+}
+
+/* Lista aberta e fechada no mesmo dia: a etiqueta sinaliza somente o turno ocupado. */
+#cf-closed .cf-calendar-day.available.has-open-event:not(.is-selected) {
+  border-color: #729c7d;
+  box-shadow: inset 0 -3px 0 #4a9968;
+}
+#cf-closed .cf-calendar-day.available.has-open-event small {
+  color: #b5f0c3;
+  font-size: clamp(6px, .69vw, 8px);
+}
+#cf-closed .cf-calendar-day.available.has-open-event.is-selected small {
+  color: #252012;
+}
+#cf-closed .cf-period.cf-period-open:not(:disabled) {
+  background: #46513a;
+  border-color: #749171;
+  color: #e4ffe5;
+  cursor: pointer;
+}
+#cf-closed .cf-period.cf-period-open:not(:disabled):hover {
+  background: #3c6549;
+  border-color: #9cd5a9;
+}
+#cf-closed .cf-period.cf-period-open em { color: #b6edc1; }
