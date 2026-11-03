@@ -1,0 +1,188 @@
+/* Campo Ferrari V12.9 — refinamento visual apenas da base do hero e da faixa em movimento.
+   Paleta: preto/grafite, branco quente e laranja #FFA510 (cor oficial usada no hero).
+   Não altera os componentes de agendamento, API ou painel administrativo. */
+:root {
+  --cf-v129-ink: #141414;
+  --cf-v129-surface: #211c18;
+  --cf-v129-orange: #ffa510;
+  --cf-v129-orange-soft: #ffc15c;
+  --cf-v129-white: #fff9f0;
+  --cf-v129-muted: #d6cec3;
+}
+
+/* Hero: rodapé escuro integrado ao resto da página e linha de acento suave. */
+.hero.hero-pulso-ferrari .cf-hero-bottom {
+  isolation: isolate;
+  align-items: center;
+  padding: 22px 0 0;
+  border-top: 1px solid rgba(255,165,16,.37);
+  background: none;
+  transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
+}
+.hero.hero-pulso-ferrari .cf-hero-bottom::before {
+  content: "";
+  position: absolute;
+  inset: 0 -12px -12px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255,165,16,.07), rgba(255,165,16,.015) 42%, rgba(255,165,16,.055));
+  opacity: .82;
+  border-radius: 12px;
+}
+.hero.hero-pulso-ferrari .cf-hero-bottom::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -1px;
+  left: 0;
+  width: min(34%, 280px);
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--cf-v129-orange), rgba(255,165,16,0));
+}
+.hero.hero-pulso-ferrari .cf-hero-positioning {
+  gap: 7px;
+  min-width: 0;
+}
+.hero.hero-pulso-ferrari .cf-hero-positioning p:first-child {
+  color: var(--cf-v129-white);
+  font-weight: 650;
+  letter-spacing: -.015em;
+}
+.hero.hero-pulso-ferrari .cf-hero-positioning p + p {
+  color: var(--cf-v129-muted);
+  letter-spacing: .015em;
+}
+.hero.hero-pulso-ferrari .cf-hero-positioning span { color: var(--cf-v129-orange); }
+.hero.hero-pulso-ferrari .cf-hero-metrics {
+  align-items: stretch;
+  gap: clamp(9px,1.3vw,20px);
+}
+.hero.hero-pulso-ferrari .cf-hero-metric {
+  position: relative;
+  justify-content: center;
+  padding: 10px clamp(9px,1.1vw,16px);
+  min-width: 0;
+  border: 1px solid rgba(255,165,16,.13);
+  background: rgba(255,255,255,.025);
+  border-radius: 12px;
+  transition: transform .35s cubic-bezier(.16,1,.3,1),
+              border-color .3s ease, background-color .3s ease, box-shadow .35s ease;
+}
+.hero.hero-pulso-ferrari .cf-hero-metric strong {
+  color: var(--cf-v129-white);
+  transition: color .3s ease, text-shadow .3s ease;
+}
+.hero.hero-pulso-ferrari .cf-hero-metric span { color: var(--cf-v129-muted); }
+.hero.hero-pulso-ferrari .cf-hero-metric:hover {
+  transform: translateY(-5px);
+  background: rgba(255,165,16,.09);
+  border-color: rgba(255,165,16,.55);
+  box-shadow: 0 12px 28px rgba(0,0,0,.16);
+}
+.hero.hero-pulso-ferrari .cf-hero-metric:hover strong {
+  color: var(--cf-v129-orange-soft);
+  text-shadow: 0 0 20px rgba(255,165,16,.18);
+}
+.hero.hero-pulso-ferrari .cf-hero-divider {
+  align-self: center;
+  background: linear-gradient(180deg, transparent, rgba(255,165,16,.45), transparent);
+}
+
+/* A faixa rolante mantém o texto e o loop da versão anterior,
+   mas ganha o mesmo preto, laranja e branco da marca. */
+.manifesto.manifesto--ticker {
+  border: 0;
+  border-top: 2px solid var(--cf-v129-orange);
+  border-bottom: 1px solid rgba(255,165,16,.4);
+  background: linear-gradient(105deg, #141414 0%, #241d17 52%, #141414 100%);
+  box-shadow: inset 0 1px rgba(255,255,255,.045), 0 10px 26px rgba(0,0,0,.13);
+  color: var(--cf-v129-white);
+}
+.manifesto.manifesto--ticker::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -40%;
+  width: 28%;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,165,16,.075), transparent);
+  animation: cf-v129-shimmer 10s ease-in-out infinite;
+}
+.manifesto--ticker .manifesto-ticker-track { position: relative; z-index: 1; }
+.manifesto--ticker .manifesto-group { min-height: 78px; }
+.manifesto--ticker .manifesto-message {
+  color: var(--cf-v129-white);
+  text-shadow: none;
+  transition: color .3s ease, transform .35s cubic-bezier(.16,1,.3,1), text-shadow .3s ease;
+}
+.manifesto--ticker .manifesto-message:first-child,
+.manifesto--ticker .manifesto-message:nth-child(5) { color: var(--cf-v129-orange-soft); }
+.manifesto--ticker .manifesto-message:hover {
+  color: var(--cf-v129-orange-soft);
+  transform: translateY(-2px);
+  text-shadow: 0 0 18px rgba(255,165,16,.2);
+}
+.manifesto--ticker .manifesto-message--accent {
+  background: var(--cf-v129-orange);
+  color: var(--cf-v129-ink);
+  border: 1px solid rgba(255,255,255,.3);
+  text-shadow: none;
+  box-shadow: 0 3px 18px rgba(255,165,16,.13);
+  transition: background-color .3s ease, color .3s ease,
+              transform .35s cubic-bezier(.16,1,.3,1), box-shadow .3s ease;
+}
+.manifesto--ticker .manifesto-message--accent:hover {
+  color: var(--cf-v129-ink);
+  background: var(--cf-v129-orange-soft);
+  transform: translateY(-2px) scale(1.035);
+  text-shadow: none;
+  box-shadow: 0 5px 24px rgba(255,165,16,.26);
+}
+.manifesto--ticker .manifesto-separator {
+  color: var(--cf-v129-orange);
+  opacity: 1;
+  text-shadow: 0 0 12px rgba(255,165,16,.28);
+}
+/* Pausa ao apontar para facilitar leitura dos dizeres em movimento. */
+.manifesto--ticker:hover .manifesto-ticker-track,
+.manifesto--ticker:focus-within .manifesto-ticker-track { animation-play-state: paused; }
+@keyframes cf-v129-shimmer {
+  0%, 10% { transform: translateX(0); opacity: 0; }
+  35% { opacity: 1; }
+  75%, 100% { transform: translateX(520%); opacity: 0; }
+}
+
+/* Apresentação suave ao entrar no viewport; sem JS as informações são visíveis. */
+.hero.hero-pulso-ferrari .cf-hero-bottom.cf-motion-pending {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.hero.hero-pulso-ferrari .cf-hero-bottom.cf-motion-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+  .hero.hero-pulso-ferrari .cf-hero-bottom { align-items: stretch; }
+  .hero.hero-pulso-ferrari .cf-hero-metrics { width: 100%; justify-content: space-between; }
+  .hero.hero-pulso-ferrari .cf-hero-metric { flex: 1 1 0; }
+}
+@media (max-width: 640px) {
+  .hero.hero-pulso-ferrari .cf-hero-bottom { padding-top: 16px; }
+  .hero.hero-pulso-ferrari .cf-hero-metrics { gap: 5px; }
+  .hero.hero-pulso-ferrari .cf-hero-metric { padding: 10px 6px; border-radius: 8px; }
+  .hero.hero-pulso-ferrari .cf-hero-metric span { font-size: .58rem; white-space: normal; }
+  .hero.hero-pulso-ferrari .cf-hero-divider { margin: 0 1px; }
+  .manifesto--ticker .manifesto-group { min-height: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .manifesto.manifesto--ticker::after { animation: none; display: none; }
+  .hero.hero-pulso-ferrari .cf-hero-bottom.cf-motion-pending { opacity: 1; transform: none; }
+  .hero.hero-pulso-ferrari .cf-hero-metric,
+  .hero.hero-pulso-ferrari .cf-hero-metric strong,
+  .manifesto--ticker .manifesto-message,
+  .manifesto--ticker .manifesto-message--accent { transition: none; }
+  .hero.hero-pulso-ferrari .cf-hero-metric:hover,
+  .manifesto--ticker .manifesto-message:hover { transform: none; }
+}

@@ -1,0 +1,276 @@
+/* Campo Ferrari V12.19 — cabeçalho premium e acesso administrativo.
+   Escopo restrito ao header público; não afeta reservas, API ou painel. */
+
+.site-header.cf-site-header {
+  --cf-nav-orange: #ffa510;
+  --cf-nav-orange-soft: #ffd17e;
+  --cf-nav-white: #fff8ee;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  background: rgba(17, 16, 14, .95);
+  border-bottom: 1px solid rgba(255, 165, 16, .32);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.site-header.cf-site-header.is-scrolled {
+  background: rgba(12, 12, 11, .985);
+  border-color: rgba(255, 165, 16, .5);
+  box-shadow: 0 12px 35px rgba(0,0,0,.4), 0 1px 0 rgba(255, 165, 16, .08);
+}
+.site-header.cf-site-header::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, #ffa510, #ffdc8b, #ff9d00, #7a3900, #ffa510);
+  background-size: 170% 100%;
+  animation: cf-header-topline 9s ease-in-out infinite alternate;
+}
+@keyframes cf-header-topline { from {background-position: 0% 50%;} to {background-position: 100% 50%;} }
+.site-header.cf-site-header .cf-main-navbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 87px;
+  width: 100%;
+  max-width: 1390px;
+  padding: 10px clamp(18px, 2.6vw, 35px);
+}
+.site-header.cf-site-header .cf-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 13px;
+  position: relative;
+  margin: 0 auto 0 0;
+  padding: 0;
+  min-height: 58px;
+  color: var(--cf-nav-white);
+  text-decoration: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  transition: opacity .24s ease;
+}
+.site-header.cf-site-header .cf-brand:hover { opacity: .94; }
+.site-header.cf-site-header .cf-brand .brand-logo {
+  position: static;
+  display: block;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 210, 124, .4);
+  background: #ffa510;
+  box-shadow: 0 0 0 3px rgba(255,165,16,.065), 0 9px 26px rgba(255,137,0,.14);
+  transition: transform .32s cubic-bezier(.2,.8,.2,1), box-shadow .32s ease;
+}
+.site-header.cf-site-header .cf-brand:hover .brand-logo,
+.site-header.cf-site-header .cf-brand:focus-visible .brand-logo {
+  transform: translateY(-2px) rotate(-2deg);
+  box-shadow: 0 0 0 3px rgba(255,165,16,.12), 0 12px 30px rgba(255,137,0,.28);
+}
+.site-header.cf-site-header .cf-brand-copy { display:flex; flex-direction:column; gap:4px; justify-content:center; min-width:0; }
+.site-header.cf-site-header .cf-brand-title {
+  color: #fffaf2;
+  font-size: clamp(15px, 1.3vw, 19px);
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1.1;
+  transition: color .25s ease;
+}
+.site-header.cf-site-header .cf-brand:hover .cf-brand-title { color: #ffe0a3; }
+.site-header.cf-site-header .brand-sub {
+  display: block;
+  color: #cbb69a;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .17em;
+  line-height: 1.2;
+}
+.site-header.cf-site-header .cf-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(3px,.45vw,9px) !important;
+}
+.site-header.cf-site-header .cf-navbar-links .nav-item {margin:0;}
+.site-header.cf-site-header .cf-navbar-links .nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 43px;
+  padding: 10px clamp(6px,.55vw,10px);
+  border-radius: 9px;
+  color: #e7ddd0;
+  font-size: 12.5px;
+  font-weight: 550;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color .25s ease, background-color .25s ease, transform .25s ease;
+}
+.site-header.cf-site-header .cf-navbar-links .nav-link::after {
+  left: 10px; right: 10px; bottom: 6px;
+  height: 2px; border-radius: 3px;
+  background: var(--cf-nav-orange);
+  transition: transform .3s ease;
+}
+.site-header.cf-site-header .cf-navbar-links .nav-link:hover,
+.site-header.cf-site-header .cf-navbar-links .nav-link:focus-visible {
+  color: #ffcd74;
+  background: rgba(255, 165, 16, .07);
+}
+.site-header.cf-site-header .cf-admin-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,175,49,.5);
+  border-radius: 9px;
+  color: #ffca72;
+  background: rgba(255,165,16,.055);
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease, background-color .24s ease, color .24s ease;
+}
+.site-header.cf-site-header .cf-admin-nav-link:hover,
+.site-header.cf-site-header .cf-admin-nav-link:focus-visible {
+  transform: translateY(-2px);
+  color: #15110a;
+  border-color: #ffbb4c;
+  background: #ffb63e;
+  box-shadow: 0 5px 20px rgba(255,165,16,.2);
+}
+.site-header.cf-site-header .cf-admin-nav-link svg {flex-shrink:0;}
+.site-header.cf-site-header .cf-nav-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  padding: 11px 15px;
+  border: 1px solid #ffbd51;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #ff9e0c, #ffc14e);
+  color: #17100a;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 7px 23px rgba(255,149,0,.19), inset 0 1px rgba(255,255,255,.28);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.site-header.cf-site-header .cf-nav-booking:hover,
+.site-header.cf-site-header .cf-nav-booking:focus-visible {
+  transform: translateY(-3px);
+  color: #17100a;
+  border-color: #ffe0a3;
+  background: linear-gradient(135deg,#ffb335,#ffd780);
+  box-shadow: 0 11px 28px rgba(255,149,0,.29), inset 0 1px rgba(255,255,255,.3);
+}
+.site-header.cf-site-header .cf-nav-arrow {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform .25s ease;
+}
+.site-header.cf-site-header .cf-nav-booking:hover .cf-nav-arrow,
+.site-header.cf-site-header .cf-nav-booking:focus-visible .cf-nav-arrow { transform: translate(2px,-2px); }
+.site-header.cf-site-header .cf-mobile-nav-actions { display: none; }
+.site-header.cf-site-header a:focus-visible,
+.site-header.cf-site-header button:focus-visible { outline: 2px solid #ffe0a3; outline-offset: 3px; }
+@media (min-width:992px) and (max-width:1199px) {
+  .site-header.cf-site-header .cf-main-navbar { padding-inline: 13px; gap: 6px; }
+  .site-header.cf-site-header .cf-brand { gap: 8px; }
+  .site-header.cf-site-header .cf-brand .brand-logo { flex-basis: 49px; width:49px; height:49px; }
+  .site-header.cf-site-header .cf-brand-title { font-size: 15px; }
+  .site-header.cf-site-header .brand-sub { font-size: 7px; letter-spacing:.09em; }
+  .site-header.cf-site-header .cf-navbar-links {gap:0!important;}
+  .site-header.cf-site-header .cf-navbar-links .nav-link {font-size:11px; padding-inline:5px;}
+  .site-header.cf-site-header .cf-admin-nav-link {gap:5px; font-size:11px; padding-inline:8px;}
+  .site-header.cf-site-header .cf-nav-booking {font-size:11px; padding-inline:10px; gap:5px;}
+}
+@media (max-width:991px) {
+  .site-header.cf-site-header .cf-main-navbar {
+    min-height: 72px;
+    gap: 8px;
+    padding: 9px 17px;
+  }
+  .site-header.cf-site-header .cf-brand { min-height: 50px; gap:10px; }
+  .site-header.cf-site-header .cf-brand .brand-logo {flex-basis:48px;width:48px;height:48px;border-radius:8px;}
+  .site-header.cf-site-header .cf-brand-title {font-size:15px;}
+  .site-header.cf-site-header .brand-sub {font-size:7px;letter-spacing:.11em;}
+  .site-header.cf-site-header .cf-mobile-nav-actions {display:inline-flex;align-items:center;gap:8px;margin-left:auto;}
+  .site-header.cf-site-header .cf-mobile-admin,
+  .site-header.cf-site-header .navbar-toggler {
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:42px;
+    height:42px;
+    min-width:42px;
+    padding:0;
+    border:1px solid rgba(255,167,23,.42);
+    border-radius:9px;
+    background:rgba(255,165,16,.045);
+    color:#ffbd54;
+    text-decoration:none;
+    transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .25s ease;
+  }
+  .site-header.cf-site-header .cf-mobile-admin:hover,
+  .site-header.cf-site-header .cf-mobile-admin:focus-visible,
+  .site-header.cf-site-header .navbar-toggler:hover,
+  .site-header.cf-site-header .navbar-toggler:focus-visible {
+    background:rgba(255,165,16,.16);
+    border-color:#ffbd54;
+    color:#ffda8c;
+    transform:translateY(-1px);
+  }
+  .site-header.cf-site-header .navbar-toggler-icon {width:20px;height:20px;filter:sepia(1) saturate(2) hue-rotate(342deg) brightness(1.4);}
+  .site-header.cf-site-header .navbar-collapse {
+    flex-basis:100%;
+    width:100%;
+    margin:5px 0 0;
+    padding:12px;
+    border:1px solid rgba(255,165,16,.22);
+    border-radius:12px;
+    background:linear-gradient(160deg,rgba(35,28,20,.98),rgba(15,14,13,.99));
+    box-shadow:0 18px 35px rgba(0,0,0,.28);
+  }
+  .site-header.cf-site-header .cf-navbar-links {display:flex;align-items:stretch;flex-direction:column;gap:4px!important;}
+  .site-header.cf-site-header .cf-navbar-links .nav-item {width:100%;margin:0;}
+  .site-header.cf-site-header .cf-navbar-links .nav-link,
+  .site-header.cf-site-header .cf-admin-nav-link,
+  .site-header.cf-site-header .cf-nav-booking {
+    width:100%;
+    min-height:42px;
+    justify-content:flex-start;
+    padding:12px 14px;
+    font-size:13px;
+  }
+  .site-header.cf-site-header .cf-navbar-links .nav-link::after {left:14px;right:calc(100% - 70px);}
+  .site-header.cf-site-header .cf-admin-nav-link {margin-top:5px;}
+  .site-header.cf-site-header .cf-nav-booking {justify-content:center;margin-top:4px;}
+}
+@media (max-width:390px) {
+  .site-header.cf-site-header .cf-main-navbar { padding:9px 10px; gap:5px; }
+  .site-header.cf-site-header .cf-brand {gap:6px;}
+  .site-header.cf-site-header .cf-brand .brand-logo {flex-basis:42px;width:42px;height:42px;}
+  .site-header.cf-site-header .cf-brand-title {font-size:12px;letter-spacing:0;}
+  .site-header.cf-site-header .brand-sub {font-size:6px;letter-spacing:.06em;}
+  .site-header.cf-site-header .cf-mobile-nav-actions {gap:5px;}
+  .site-header.cf-site-header .cf-mobile-admin,
+  .site-header.cf-site-header .navbar-toggler {width:38px;min-width:38px;height:38px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .site-header.cf-site-header::before {animation:none;}
+  .site-header.cf-site-header *,
+  .site-header.cf-site-header *::before,
+  .site-header.cf-site-header *::after {transition:none!important;animation:none!important;}
+}

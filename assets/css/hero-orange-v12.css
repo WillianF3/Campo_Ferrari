@@ -1,0 +1,94 @@
+/* Campo Ferrari V12.1 | Hero editorial Style Orange (adaptado à marca).
+   Apenas layout da abertura: não altera #booking-widget, API, formulários ou pagamentos. */
+.hero.hero-orange {
+  --orange:#ff8b26; --sun:#ffd177; --cream:#fff3de;
+  position:relative; min-height:max(720px,calc(100svh - 85px));
+  padding:0; isolation:isolate; overflow:hidden; color:var(--cream);
+  background:linear-gradient(180deg,#080807 0%,#130e0b 56%,#3c1c10 100%);
+  border-bottom:1px solid #eaa45a55;
+}
+.hero.hero-orange::before,.hero.hero-orange::after {content:none;display:none}
+.hero-orange__ambient {position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.hero-orange__glow {position:absolute;left:50%;width:1600px;height:900px;max-width:none;border-radius:49% 51% 56% 44% / 53% 61% 39% 47%;filter:blur(110px);will-change:transform;transform:translateX(calc(-50% + var(--cf-mouse-x,0px))) translateY(var(--cf-mouse-y,0px));transition:transform 750ms ease-out}
+.hero-orange__glow--one {top:18%;background:radial-gradient(ellipse at 55% 65%,#ff9135bd 0%,#e4551b9e 33%,#cc3b0e20 61%,transparent 74%);opacity:.94}
+.hero-orange__glow--two {top:45%;height:1000px;background:radial-gradient(ellipse at 50% 50%,#fef0b5ad 0%,#ff9d48ac 29%,#fb5d2872 53%,transparent 75%);mix-blend-mode:screen;filter:blur(145px);opacity:.8}
+.hero-orange__photo {
+ position:absolute;inset:0 0 0 36%; background-image:url('../images/gallery/instagram-equipe-fachada.jpg');
+ background-repeat:no-repeat;background-size:cover;background-position:center 39%;
+ filter:contrast(1.13) saturate(.74) brightness(.86);
+ mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 78%,transparent 100%);
+ -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 78%,transparent 100%);
+ opacity:.66;transform:scale(1.075);transition:transform 1.4s cubic-bezier(.2,.7,.2,1);
+}
+.hero.hero-orange:hover .hero-orange__photo {transform:scale(1.025)}
+.hero-orange__wash {position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0aec 0%,#0d0c0ada 23%,#0e0b09af 39%,transparent 79%),linear-gradient(180deg,#0a090af5 0%,#110f0db0 21%,transparent 40%,#47210e78 76%,#ea7b36bb 95%,#f8c877 115%)}
+.hero-orange__grain {position:absolute;inset:0;z-index:1;opacity:.09;background-image:url('../images/hero-grain.png');background-repeat:repeat;background-size:170px 170px;mix-blend-mode:screen}
+.hero.hero-orange .hero-orange__stage {position:relative;z-index:2;min-height:max(720px,calc(100svh - 85px));max-width:1400px;display:flex;flex-direction:column;justify-content:space-between;padding:32px 28px 25px}
+.hero-orange__top,.hero-orange__bottom {display:flex;align-items:center;justify-content:space-between;gap:16px;font:800 10px/1.5 'Arial Narrow',Arial,sans-serif;letter-spacing:.2em}
+.hero-orange__top {opacity:.88}
+.hero-orange__signal {display:inline-flex;align-items:center;gap:10px}
+.hero-orange__signal i {display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffac36;box-shadow:0 0 0 7px #ff9d281b,0 0 24px #ff9224}
+.hero-orange__coordinates {color:#f3dbc2a8}
+.hero-orange__copy {position:relative;z-index:3;align-self:flex-start;max-width:910px;margin:38px 0 40px;animation:cf-orange-enter .8s both}
+.hero-orange__kicker {display:block;margin-bottom:14px;color:#ffb961;font:800 11px/1.4 Arial,sans-serif;letter-spacing:.26em}
+.hero-orange__prelude {font:650 clamp(1rem,1.55vw,1.32rem)/1.3 Arial,sans-serif;letter-spacing:-.02em;color:#fff5e6;margin:0 0 5px}
+.hero.hero-orange h1 {font-family:Impact,'Arial Black','Arial Narrow',sans-serif;font-weight:900;font-stretch:condensed;letter-spacing:-.03em;font-size:clamp(5.25rem,13.3vw,12.6rem);line-height:.82;margin:0 0 26px;color:#fff5e6;text-shadow:0 15px 35px #1d0d075e;text-transform:uppercase}
+.hero.hero-orange h1 span {color:#ffb94d;text-shadow:0 12px 38px #ee762ca6}
+.hero-orange__description {max-width:560px;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:500;line-height:1.65;color:#f6e2cbdc;text-shadow:0 2px 8px #1309048c;margin-bottom:25px}
+.hero-orange__actions {display:flex;gap:12px 25px;align-items:center;flex-wrap:wrap}
+.hero-orange__primary {position:relative;display:inline-flex;justify-content:center;align-items:center;gap:20px;min-height:64px;padding:19px 27px;border-radius:9px;background:linear-gradient(135deg,#ffd17b,#ff9b30 68%,#ed6d20);border:1px solid #ffe1a3;color:#17100b;text-decoration:none;font:900 12px/1.2 Arial,sans-serif;letter-spacing:.08em;box-shadow:0 9px 0 #9d3d0e,0 24px 48px #0007,0 0 35px #ff7f2626;transition:transform .24s,box-shadow .24s,filter .24s}
+.hero-orange__primary:hover {color:#17100b;transform:translateY(-4px);box-shadow:0 12px 0 #9d3d0e,0 28px 54px #0009,0 0 50px #ff9f4599;filter:brightness(1.08)}
+.hero-orange__primary:active {transform:translateY(2px);box-shadow:0 3px 0 #9d3d0e,0 9px 22px #0007}
+.hero-orange__primary span {font-size:23px;line-height:.7}
+.hero-orange__secondary {text-decoration:none;font:850 11px/1.3 Arial,sans-serif;letter-spacing:.07em;color:#fff3e5;border-bottom:1px solid #ffac53aa;padding:10px 0;transition:color .2s}
+.hero-orange__secondary:hover {color:#ffb550}
+.hero-orange__micro {margin:20px 0 0;font:500 12px/1.5 Arial,sans-serif;color:#f9dbc2ac}
+.hero-orange__micro span {color:#ffcb69}
+.hero-orange__emblem {position:absolute;right:4%;bottom:17%;width:clamp(120px,15vw,210px);aspect-ratio:1;display:grid;place-items:center;transform:rotate(9deg);opacity:.92;filter:drop-shadow(0 22px 30px #000a);}
+.hero-orange__emblem::before {content:'';position:absolute;inset:-14px;border:1px solid #ffb46a60;border-radius:100%;box-shadow:0 0 52px #ff9b4221,inset 0 0 40px #ff9b4221}
+.hero-orange__emblem img {position:relative;width:100%;height:100%;object-fit:contain;border-radius:50%;clip-path:circle(50%);filter:drop-shadow(0 8px 18px #0009)}
+.hero-orange__bottom {border-top:1px solid #ffe1b960;padding-top:19px;color:#ffeedc}
+.hero-orange__bottom b {color:#ffc76c;margin:0 9px}
+.hero-orange__down {text-decoration:none;color:#fff0d8;white-space:nowrap;transition:color .2s}
+.hero-orange__down:hover {color:#ffbb65}
+.hero-orange__down span {color:#ffbb65;margin-left:10px}
+.hero.hero-orange a:focus-visible {outline:3px solid white;outline-offset:5px}
+@keyframes cf-orange-enter {from{transform:translateY(22px);opacity:0}to{transform:none;opacity:1}}
+/* A reserva continua sendo o centro da conversão; o widget original não é substituído. */
+#agendar {scroll-margin-top:100px}
+#agendar .booking-intro h2 {text-wrap:balance}
+#agendar .cf-booking {box-shadow:0 22px 80px #0006,0 0 0 1px #ffb03b15}
+#agendar .cf-mode.is-active {box-shadow:inset 0 -3px #ffbb5b,0 0 24px #ff9f2613}
+@media(max-width:991px) {
+ .hero.hero-orange,.hero.hero-orange .hero-orange__stage {min-height:740px}
+ .hero-orange__photo {inset:8% -30% 0 20%;opacity:.5}
+ .hero-orange__copy {margin:56px 0 44px}
+ .hero.hero-orange h1 {font-size:clamp(6rem,16vw,10rem)}
+ .hero-orange__emblem {right:5%;bottom:14%;width:135px}
+}
+@media(max-width:600px) {
+ .hero.hero-orange,.hero.hero-orange .hero-orange__stage {min-height:690px}
+ .hero.hero-orange .hero-orange__stage {padding:20px 20px 24px}
+ .hero-orange__coordinates {display:none}
+ .hero-orange__copy {margin:48px 0 32px;max-width:100%}
+ .hero.hero-orange h1 {font-size:clamp(5rem,22vw,8.5rem);letter-spacing:-.035em;margin-bottom:25px}
+ .hero-orange__prelude {font-size:1rem}
+ .hero-orange__kicker {font-size:9px}
+ .hero-orange__description {font-size:14px;max-width:400px}
+ .hero-orange__photo {inset:0 -70% 0 0;opacity:.41;background-position:50% 43%;mask-image:linear-gradient(180deg,#000 0%,#000 69%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 69%,transparent 100%)}
+ .hero-orange__wash {background:linear-gradient(90deg,#0b0b0aea,transparent 95%),linear-gradient(180deg,#080808c9 0%,#0a080ba8 40%,#100a07b0 68%,#ff943a80 96%)}
+ .hero-orange__glow {width:1100px;height:720px;filter:blur(85px)}
+ .hero-orange__glow--one {top:35%}
+ .hero-orange__glow--two {top:58%}
+ .hero-orange__actions {align-items:stretch;flex-direction:column}
+ .hero-orange__primary {min-height:61px;width:100%;font-size:11px}
+ .hero-orange__secondary {align-self:center;font-size:10px}
+ .hero-orange__micro {margin-top:15px;font-size:11px}
+ .hero-orange__emblem {display:none}
+ .hero-orange__bottom {font-size:8px;letter-spacing:.05em;align-items:flex-start;flex-direction:column}
+ .hero-orange__bottom b {margin:0 4px}
+}
+@media (prefers-reduced-motion:reduce) {
+ .hero-orange__copy {animation:none}
+ .hero-orange__glow,.hero-orange__photo,.hero-orange__primary {transition:none;transform:none}
+}

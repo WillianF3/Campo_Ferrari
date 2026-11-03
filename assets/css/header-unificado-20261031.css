@@ -1,0 +1,38 @@
+/* Campos internos: usa exatamente a identidade do cabecalho da pagina principal.
+   CSS de compatibilidade, sem Bootstrap global (que altera formularios do painel). */
+.site-header.cf-site-header.cf-unified-header { box-sizing:border-box; width:100%; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.site-header.cf-site-header.cf-unified-header *,
+.site-header.cf-site-header.cf-unified-header *::before,
+.site-header.cf-site-header.cf-unified-header *::after { box-sizing:border-box; }
+.site-header.cf-site-header.cf-unified-header .cf-main-navbar { margin:0 auto; }
+.site-header.cf-site-header.cf-unified-header .cf-brand { flex:0 0 auto; }
+.site-header.cf-site-header.cf-unified-header .navbar-collapse { display:flex; flex:1 1 auto; min-width:0; align-items:center; }
+.site-header.cf-site-header.cf-unified-header .navbar-nav { display:flex; padding:0; list-style:none; margin:0 0 0 auto; }
+.site-header.cf-site-header.cf-unified-header .cf-navbar-links .nav-link { text-decoration:none; }
+.site-header.cf-site-header.cf-unified-header .navbar-toggler-icon { display:block; width:21px; height:17px; background:linear-gradient(#ffca75,#ffca75) center top/100% 2px no-repeat,linear-gradient(#ffca75,#ffca75) center/100% 2px no-repeat,linear-gradient(#ffca75,#ffca75) center bottom/100% 2px no-repeat; }
+.site-header.cf-site-header.cf-unified-header .cf-header-cta { margin-left:0; }
+.site-header.cf-site-header.cf-unified-header .cf-header-logout { flex:0 0 auto; margin-left:7px; }
+.site-header.cf-site-header.cf-unified-header .cf-header-logout {
+ display:inline-flex; align-items:center; justify-content:center; min-height:45px; padding:11px 17px;
+ font:800 12px/1.2 Inter,system-ui,sans-serif; border:1px solid #ffbd51;
+ border-radius:9px; background:linear-gradient(135deg,#ff9e0c,#ffc14e); color:#17100a;
+ box-shadow:0 7px 23px rgba(255,149,0,.19); transition:background .2s,transform .2s; cursor:pointer;
+}
+.site-header.cf-site-header.cf-unified-header .cf-header-logout:hover { transform:translateY(-2px); background:#ffd078; color:#17100a; }
+.site-header.cf-site-header.cf-unified-header .cf-header-logout[hidden] { display:none!important; }
+@media (min-width:992px) and (max-width:1199px) {
+ .site-header.cf-site-header.cf-unified-header .cf-header-cta,
+ .site-header.cf-site-header.cf-unified-header .cf-header-logout { padding-inline:10px; font-size:11px; }
+}
+@media (max-width:991px) {
+ .site-header.cf-site-header.cf-unified-header .navbar-collapse { display:none; flex:0 0 100%; order:5; width:100%; min-width:0; }
+ .site-header.cf-site-header.cf-unified-header .navbar-collapse.show { display:block; }
+ .site-header.cf-site-header.cf-unified-header .navbar-nav { margin:0; flex-direction:column; align-items:stretch; }
+ .site-header.cf-site-header.cf-unified-header .cf-header-logout { min-height:39px; padding:9px 11px; margin-left:0; font-size:11px; order:3; }
+ .site-header.cf-site-header.cf-unified-header .cf-main-navbar { flex-wrap:wrap; }
+}
+@media (max-width:390px) {
+ .site-header.cf-site-header.cf-unified-header .cf-header-logout { padding-inline:8px; }
+ .site-header.cf-site-header.cf-unified-header:has(.cf-header-logout:not([hidden])) .cf-mobile-admin { display:none; }
+}
+@media print { .site-header.cf-site-header.cf-unified-header { display:none!important; } }

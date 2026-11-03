@@ -1,0 +1,101 @@
+/* Campo Ferrari — pop-up de sucesso da solicitação de evento fechado.
+   Isolado do calendário, formulários de reserva e painel administrativo. */
+dialog.cf-private-success-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(92vw, 510px);
+  max-width: calc(100vw - 26px);
+  max-height: min(90dvh, 700px);
+  padding: 0;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 169, 37, .57);
+  border-radius: 19px;
+  background: linear-gradient(155deg, #34291f 0%, #1c1916 57%, #181716 100%);
+  color: #fff4e3;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 180, 60, .07) inset;
+  z-index: 99999;
+  box-sizing: border-box;
+  color-scheme: dark;
+}
+dialog.cf-private-success-dialog:not([open]) { display: none; }
+dialog.cf-private-success-dialog::backdrop {
+  background: rgba(8, 7, 6, .83);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.cf-private-success-content { padding: clamp(25px, 5vw, 38px); text-align: center; }
+.cf-private-success-symbol {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 17px;
+  border-radius: 20px;
+  background: #ffab1d;
+  color: #21180b;
+  box-shadow: 0 10px 38px rgba(255, 171, 29, .19);
+}
+.cf-private-success-eyebrow {
+  display: block;
+  color: #ffc46d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .17em;
+}
+.cf-private-success-dialog h2 {
+  margin: 10px 0 14px;
+  font-size: clamp(26px, 6vw, 34px);
+  line-height: 1.12;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.035em;
+}
+.cf-private-success-dialog p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 450;
+  line-height: 1.62;
+  color: #e9d9c7;
+}
+.cf-private-success-notice {
+  margin: 19px 0 23px;
+  padding: 13px 14px;
+  background: rgba(255, 170, 35, .1);
+  border: 1px solid rgba(255, 175, 52, .31);
+  border-radius: 10px;
+  color: #ffe4b5;
+  font-size: 12.5px;
+  line-height: 1.55;
+  text-align: left;
+}
+.cf-private-success-notice strong { color: #ffc46d; }
+.cf-private-success-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 11px;
+  background: #ffac24;
+  color: #19130b;
+  font-size: 14px;
+  font-weight: 850;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.cf-private-success-confirm:hover { background: #ffc05c; transform: translateY(-1px); }
+.cf-private-success-confirm:focus-visible { outline: 3px solid #fff5d9; outline-offset: 4px; }
+.cf-private-success-fallback { display: block; }
+@media (max-width: 480px) {
+  .cf-private-success-content { padding: 26px 22px 24px; }
+  .cf-private-success-symbol { width: 58px; height: 58px; border-radius: 17px; }
+  .cf-private-success-dialog p { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cf-private-success-confirm { transition: none; }
+  .cf-private-success-confirm:hover { transform: none; }
+}

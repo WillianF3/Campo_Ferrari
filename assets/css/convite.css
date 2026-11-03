@@ -1,0 +1,52 @@
+:root{color-scheme:dark;--invite-bg:#29251f;--invite-panel:#43392d;--invite-line:#796346;--invite-text:#f9f3e8;--invite-muted:#d1c5b2;--invite-accent:#ffa510;font-family:Inter,Arial,sans-serif;color:var(--invite-text);background:var(--invite-bg)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 20%,#6a4b2629,transparent 55%),var(--invite-bg);min-height:100vh}a{color:inherit}button,input{font:inherit}button,a,input{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:wait;opacity:.65}[hidden]{display:none!important}:focus-visible{outline:3px solid #ffd78d;outline-offset:4px}
+.invite-header{max-width:1200px;margin:0 auto;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #79634670}.invite-brand{display:flex;align-items:center;gap:13px;text-decoration:none;font-weight:800;letter-spacing:.04em;font-size:18px}.invite-brand img{object-fit:contain}.invite-brand strong{color:var(--invite-accent)}.invite-home{font-size:13px;text-underline-offset:5px;color:var(--invite-muted)}
+.invite-main{max-width:1120px;margin:0 auto;padding:70px 32px 56px;display:grid;grid-template-columns:1fr 1.1fr;align-items:start;gap:70px}.invite-intro{padding-top:35px}.invite-eyebrow{color:var(--invite-accent);font-size:10px;letter-spacing:.15em;font-weight:800;line-height:1.7}.invite-intro h1{font-size:clamp(34px,3.8vw,52px);line-height:1.08;letter-spacing:-.045em;margin:24px 0}.invite-intro>p:last-child{color:var(--invite-muted);line-height:1.7;max-width:400px;font-size:15px}.invite-card{border:1px solid var(--invite-line);border-radius:16px;padding:32px;background:linear-gradient(160deg,#4e4030,var(--invite-panel));box-shadow:0 20px 55px #0002}.invite-badge{display:inline-block;border:1px solid #bd873b80;color:#ffd18b;border-radius:30px;padding:6px 10px;font-weight:800;font-size:9px;letter-spacing:.12em}.invite-card h2{font-size:25px;letter-spacing:-.025em;margin:17px 0}.invite-message{color:var(--invite-muted);font-size:14px;line-height:1.65;margin:12px 0 20px}.invite-message.is-error{border-left:3px solid #ffc071;padding:10px 13px;background:#bb690a24;color:#ffe0b6;border-radius:0 6px 6px 0}.invite-summary{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin:24px 0;padding:22px 0;border-top:1px solid #967b524d;border-bottom:1px solid #967b524d}.invite-summary div:nth-child(2){grid-row:2;grid-column:1/-1}.invite-summary dt{font-size:10px;font-weight:800;text-transform:uppercase;color:#cbbda7;letter-spacing:.05em;margin-bottom:6px}.invite-summary dd{margin:0;font-size:14px;font-weight:700;line-height:1.5}.invite-form-intro,.invite-note{font-size:12px;line-height:1.7;color:var(--invite-muted)}.invite-form-intro{margin:0 0 20px}fieldset{margin:0;padding:0;border:0;min-width:0}#invite-fields>label{display:block;font-size:12px;font-weight:700;margin:19px 0 8px}#invite-fields>input{width:100%;border:1px solid #8d7656;background:#2d271f;color:var(--invite-text);border-radius:7px;padding:13px 14px;font-size:15px;min-height:48px}input::placeholder{color:#b9ab94}#invite-phone-help{display:block;margin:7px 0;color:#c9baa2;font-size:11px}.invite-consents{display:grid;gap:14px;margin:24px 0;padding:17px;border:1px solid #8f744c80;border-radius:8px;background:#9d784914}.invite-consents label{display:flex;align-items:flex-start;gap:10px;font-size:11px;line-height:1.7}.invite-consents input{width:16px;height:16px;flex:0 0 16px;margin:2px 0 0;accent-color:var(--invite-accent)}.invite-consents a{color:#ffd18b;text-underline-offset:3px}.invite-submit{border:0;border-radius:7px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;background:var(--invite-accent);color:#272015;font-size:13px;font-weight:800;min-height:50px}.invite-submit:hover{background:#ffb635}.invite-secondary{display:inline-block;border:1px solid #ac8b58;background:#66513a;color:var(--invite-text);padding:12px 16px;border-radius:7px;font-weight:700;font-size:12px;text-decoration:none;line-height:1.5}.invite-note{border-top:1px solid #967b524d;padding-top:19px;margin:24px 0 0;font-size:11px}.invite-success{padding-top:6px}.invite-check{display:flex;align-items:center;justify-content:center;width:45px;height:45px;background:#84ad6a25;border:1px solid #86b876;color:#a1d78d;border-radius:50%;font-size:23px}.invite-success h3{font-size:23px;letter-spacing:-.02em;margin:18px 0 12px}.invite-success p{font-size:13px;color:var(--invite-muted);line-height:1.7}.invite-success .invite-secondary{margin-top:12px}.invite-footer{text-align:center;color:#b7a98f;font-size:11px;padding:20px 24px 32px}
+@media(max-width:800px){.invite-main{grid-template-columns:1fr;gap:24px;max-width:640px;padding:28px 20px 36px}.invite-intro{padding:0}.invite-intro h1{font-size:38px;margin:15px 0}.invite-intro h1 br{display:none}.invite-intro>p:last-child{max-width:100%;font-size:13px}.invite-card{padding:25px}.invite-header{padding:17px 20px}.invite-brand{font-size:14px;gap:8px}.invite-brand img{width:42px;height:42px}.invite-home{font-size:11px}.invite-eyebrow{font-size:9px}.invite-footer{padding-top:0}}@media(max-width:380px){.invite-home{display:none}.invite-card{padding:22px 18px}.invite-main{padding-left:14px;padding-right:14px}.invite-intro h1{font-size:33px}}
+
+/* Relação de jogadores do convite aprovado; nome completo somente com consentimento. */
+.invite-roster{border-top:1px solid #967b524d;border-bottom:1px solid #967b524d;padding:20px 0;margin:22px 0 25px}
+.invite-roster-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.invite-roster-heading h3{font-size:18px;font-weight:800;letter-spacing:-.025em;margin:0}
+.invite-roster-count{color:#ffcd7a;font-size:12px;font-weight:750;white-space:nowrap}
+.invite-roster-help{color:var(--invite-muted);font-size:11px;line-height:1.6;margin:9px 0 14px}
+.invite-roster-help a{color:#ffd18b}
+.invite-roster-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.invite-roster-person{display:flex;align-items:center;gap:12px;background:#322b23;border:1px solid #88704f80;border-radius:9px;min-height:49px;padding:10px 12px;flex-wrap:wrap}
+.invite-roster-person.is-my-registration{border-color:#ffb331}
+.invite-roster-number{color:#ffb735;font-weight:900;font-size:12px}
+.invite-roster-name{color:var(--invite-text);font-weight:650;font-size:13px;flex:1;min-width:140px;overflow-wrap:anywhere}
+.invite-roster-edit{border:1px solid #c88925;border-radius:7px;padding:8px 10px;background:#503a1c;color:#ffca70;font-size:11px;font-weight:800}
+.invite-roster-edit:hover{background:#654b25}
+.invite-roster-empty{font-size:12px;color:var(--invite-muted);padding:13px 10px;border:1px dashed #8e774f;border-radius:8px}
+.invite-edit-form{margin-top:16px;padding:18px;background:#28231d;border:1px solid #8a714c;border-radius:10px}
+.invite-edit-form h4{margin:0 0 15px;font-size:16px}
+.invite-edit-form>label:not(.invite-public-consent){font-size:12px;font-weight:800;display:block;margin-bottom:8px}
+.invite-edit-form>input{display:block;width:100%;min-height:45px;border:1px solid #8d7656;border-radius:7px;background:#201b16;color:#fff;padding:10px 12px}
+.invite-public-consent{display:flex!important;align-items:flex-start;gap:10px;font-size:11px!important;line-height:1.6;margin-top:15px}
+.invite-public-consent input{width:16px;height:16px;accent-color:var(--invite-accent);flex:0 0 16px;margin-top:2px}
+.invite-edit-feedback{color:#ffce7b;font-size:12px;line-height:1.5;min-height:1em}
+.invite-edit-buttons{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.invite-edit-buttons .invite-submit{width:auto;flex:1;min-width:125px;justify-content:center;padding:12px}
+.invite-edit-buttons .invite-secondary{min-height:44px}
+@media(max-width:560px){.invite-roster-person{gap:8px}.invite-roster-edit{width:100%}.invite-roster-list{gap:7px}}
+
+/* Lista de nomes e ação individual de edição */
+.invite-roster-person .invite-roster-edit {white-space:nowrap;transition:background .2s,transform .2s}
+.invite-roster-person .invite-roster-edit:active {transform:translateY(1px)}
+.invite-roster-person .invite-roster-edit.is-request {background:transparent;color:#ffcf86;border-color:#8d6b36}
+.invite-edit-hint {font-size:12px;line-height:1.6;color:#ffce89;margin-top:12px;padding:11px 12px;border:1px solid #986d31;border-radius:8px}
+.invite-edit-hint[hidden]{display:none!important}
+.invite-copy-link {border:1px solid #f3a51a;border-radius:7px;background:#5c421d;color:#ffd68a;padding:12px 15px;font-weight:750;font-size:12px;cursor:pointer;margin-top:12px;display:block}
+.team-invite-edit-button {margin-right:8px}
+
+/* Autoedição individual: sem solicitações de autorização para editar outros nomes. */
+.invite-open-edit{width:100%;margin-top:8px;text-align:center;background:#6a451a;color:#ffe0a1}
+.invite-recover{margin-top:14px;padding:17px;background:#29231d;border:1px solid #936d36;border-radius:10px}
+.invite-recover h4{margin:0 0 8px;font-size:16px}
+.invite-recover label{display:block;font-weight:700;font-size:12px;margin:13px 0 8px}
+.invite-recover input{width:100%;min-height:47px;border:1px solid #96794c;background:#211c17;color:#fff;border-radius:7px;padding:12px;font-size:13px}
+.invite-recover .invite-edit-buttons{margin-top:12px}
+.invite-success-edit{width:100%;text-align:center;background:#ffa510;color:#261b0c}
+.invite-roster-person.is-my-registration .invite-roster-name{color:#ffddb0}
+@media(max-width:560px){.invite-recover{padding:14px}.invite-recover .invite-edit-buttons{flex-direction:column;align-items:stretch}.invite-recover .invite-edit-buttons>*{width:100%}}
