@@ -1,0 +1,165 @@
+/* Destaque de fotos na home */
+.cf-photo-teaser{background:#171614;color:#fff}
+/* Vitrine automática — três cartões no desktop, dois no tablet, um no celular. */
+.cf-photo-teaser-carousel{--cf-photo-gap:20px;--cf-photo-visible:min(3,var(--cf-photo-total,3));min-width:0}
+.cf-photo-teaser-viewport{overflow:hidden;width:100%;border-radius:18px;touch-action:pan-y}
+.cf-photo-teaser-track{display:flex;align-items:stretch;gap:var(--cf-photo-gap);width:100%;will-change:transform}
+.cf-photo-teaser-track.is-animated{transition:transform .7s cubic-bezier(.22,.7,.22,1)}
+.cf-photo-teaser-track>.cf-photo-card{flex:0 0 calc((100% - (var(--cf-photo-visible) - 1) * var(--cf-photo-gap)) / var(--cf-photo-visible));min-width:0;box-sizing:border-box}
+.cf-photo-teaser-track>.cf-photo-card[aria-hidden="true"]{user-select:none}
+.cf-photo-teaser-controls{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:20px}
+.cf-photo-teaser-controls[hidden]{display:none}
+.cf-photo-teaser-hint{font-weight:800;letter-spacing:.14em;color:#bbb3a4;font-size:10px}
+.cf-photo-teaser-hint-dot{color:#ffb02e;margin:0 7px}
+.cf-photo-teaser-nav{display:flex;align-items:center;gap:10px}
+.cf-photo-teaser-indicator{font-size:12px;font-weight:900;letter-spacing:.12em;color:#f4d3a0;margin-right:8px;min-width:62px;text-align:center;font-variant-numeric:tabular-nums}
+.cf-photo-teaser-arrow{display:grid;place-items:center;width:44px;height:44px;border:1px solid #8e692e;border-radius:50%;background:#282018;color:#ffb02e;font:700 23px/1 Arial,sans-serif;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.cf-photo-teaser-arrow:hover{background:#ffb02e;color:#211609;border-color:#ffb02e;transform:translateY(-2px)}
+.cf-photo-teaser-arrow:focus-visible{outline:3px solid #ffb02e;outline-offset:3px}
+.cf-photo-teaser-empty{padding:10px 0}
+.cf-photo-teaser-carousel:focus-visible{outline:2px solid rgba(255,176,46,.8);outline-offset:6px;border-radius:10px}
+.cf-photo-card{display:block;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.09));text-decoration:none;color:#fff;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+.cf-photo-card:hover{border-color:#ffb02e;color:#fff;transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.28)}
+.cf-photo-card:focus-visible{outline:3px solid #ffb02e;outline-offset:4px}
+.cf-photo-card img{display:block;width:100%;height:330px;object-fit:cover;background:#181818}
+.cf-photo-card-caption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px}
+.cf-photo-card-caption strong{font-size:28px;line-height:1;font-weight:900;letter-spacing:-1.1px}
+.cf-photo-card-caption span{font-size:13px;font-weight:800;color:#ffb02e;letter-spacing:.3px}
+
+/* Página pública da galeria */
+.cf-photos-page{margin:0;background:radial-gradient(circle at top,rgba(255,165,16,.08),transparent 36%),linear-gradient(180deg,#090909 0%,#0f0f0e 24%,#111110 100%);color:#f8f5ef;font-family:Inter,Arial,sans-serif;line-height:1.6}
+.cf-photos-page *{box-sizing:border-box}
+.cf-photos-wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+
+.cf-photos-site-header{position:sticky;top:0;z-index:30;background:rgba(10,10,10,.92);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px)}
+.cf-photos-main-nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 0}
+.cf-photos-brand{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;min-width:0}
+.cf-photos-brand img{width:60px;height:60px;object-fit:contain;flex:0 0 auto}
+.cf-photos-brand-copy{display:grid;gap:4px;min-width:0}
+.cf-photos-brand-copy strong{display:block;font-size:21px;line-height:1;letter-spacing:-.7px;font-weight:900;color:#fff;white-space:nowrap}
+.cf-photos-brand-copy strong span{color:#ffb02e}
+.cf-photos-brand-copy small{display:block;font-size:11px;letter-spacing:2.2px;color:#d5cdbd;text-transform:uppercase;white-space:nowrap}
+.cf-photos-nav-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:center}
+.cf-photos-nav-links a{color:#ddd6ca;text-decoration:none;font-size:14px;font-weight:700;transition:color .18s ease}
+.cf-photos-nav-links a:hover,.cf-photos-nav-links a[aria-current="page"]{color:#ffb02e}
+.cf-photos-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:#ffab17;color:#16120a;text-decoration:none;font-size:13px;font-weight:900;white-space:nowrap;box-shadow:0 10px 24px rgba(255,176,46,.2);transition:transform .18s ease,box-shadow .18s ease}
+.cf-photos-cta:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(255,176,46,.28);color:#16120a}
+.cf-photos-link:focus-visible,.cf-photos-buy:focus-visible,.cf-photos-nav-links a:focus-visible,.cf-photos-cta:focus-visible,.cf-photos-secondary:focus-visible,.cf-photos-home:focus-visible{outline:3px solid #ffb02e;outline-offset:4px}
+
+.cf-photos-hero-shell{position:relative;padding:42px 0 18px}
+.cf-photos-hero{padding:38px 0 28px;border-bottom:1px solid rgba(255,255,255,.09)}
+.cf-photos-topmark{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:#cfc7ba;margin-bottom:20px}
+.cf-photos-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#ffb02e;box-shadow:0 0 0 5px rgba(255,176,46,.15)}
+.cf-photos-slash{color:#ffb02e}
+.cf-photos-hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.7fr);gap:28px;align-items:end}
+.cf-photos-copy{min-width:0}
+.cf-photos-overline{font-size:11px;letter-spacing:2.2px;font-weight:900;color:#ffb02e;text-transform:uppercase}
+.cf-photos-hero h1{font-size:clamp(44px,7vw,88px);line-height:.94;letter-spacing:-3px;font-weight:900;margin:18px 0 18px}
+.cf-photos-hero h1 span{color:#ffb02e}
+.cf-photos-lead{max-width:680px;color:#d0c8bc;font-size:16px}
+.cf-photos-hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+.cf-photos-home{color:#f5f0e6;text-decoration:none;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.cf-photos-secondary{display:inline-flex;align-items:center;gap:6px;color:#16120a;background:#f5f0e6;text-decoration:none;padding:11px 16px;border-radius:999px;font-size:13px;font-weight:800}
+.cf-photos-highlight{padding:20px 20px 18px;border:1px solid rgba(255,176,46,.24);border-radius:18px;background:linear-gradient(180deg,rgba(255,176,46,.08),rgba(255,255,255,.02));box-shadow:0 14px 34px rgba(0,0,0,.24)}
+.cf-photos-highlight strong{display:block;font-size:18px;letter-spacing:-.3px;margin-bottom:6px}
+.cf-photos-highlight p{margin:0 0 10px;color:#d7d0c3;font-size:14px}
+.cf-photos-highlight p:last-child{margin-bottom:0}
+
+.cf-photos-gallery-section{padding:18px 0 0}
+.cf-photos-controls{padding:20px 0 24px;display:flex;justify-content:space-between;align-items:end;gap:24px}
+.cf-photos-controls h2{margin:0;font-size:30px;line-height:1.05;letter-spacing:-1px}
+.cf-photos-controls label{font-size:12px;display:grid;gap:8px;color:#d5cdbd;font-weight:700;min-width:min(290px,100%)}
+.cf-photos-controls input{width:290px;max-width:100%;padding:14px 16px;background:#1a1a18;color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:12px;font:inherit;font-size:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.cf-photos-controls input:focus{outline:2px solid #ffb02e;outline-offset:2px}
+.cf-photos-count{font-size:13px;color:#bbb29f;margin:8px 0 0}
+.cf-photos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.cf-photos-grid [hidden]{display:none}
+.cf-photos-buy{display:block;text-decoration:none;color:inherit}
+.cf-photos-grid img{height:360px;user-select:none}
+.cf-photos-notice{margin:30px 0 60px;padding:22px 24px;border-left:3px solid #ffb02e;border-radius:16px;background:rgba(255,255,255,.03);color:#c5bdaf;font-size:13px}
+.cf-photos-footer{padding:26px 0;border-top:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.22);color:#928b80;font-size:12px}
+.cf-photos-footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.cf-photos-footer-inner p{margin:0;color:#bdb4a4}
+.cf-photos-footer-brand{color:#fff;text-decoration:none;display:grid;gap:4px}
+.cf-photos-footer-brand strong{font-size:20px;letter-spacing:-.5px}
+.cf-photos-footer-brand span{font-size:11px;letter-spacing:1.9px;color:#d5cdbd}
+.cf-photos-footer-links{display:flex;flex-wrap:wrap;gap:14px 18px}
+.cf-photos-footer-links a{color:#d8d1c5;text-decoration:none}
+.cf-photos-empty{padding:32px 0;color:#ddd3c2}
+.cf-photos-page .cf-photo-card{scroll-margin-top:110px}
+.cf-photos-page .cf-photo-card:target{border-color:#ffb02e;box-shadow:0 0 0 2px #ffb02e,0 12px 28px rgba(0,0,0,.22)}
+
+@media(max-width:1024px){
+  .cf-photos-main-nav{flex-wrap:wrap;justify-content:space-between}
+  .cf-photos-nav-links{order:3;width:100%;justify-content:flex-start;padding-top:4px}
+  .cf-photos-hero-grid{grid-template-columns:1fr}
+  .cf-photos-highlight{max-width:420px}
+}
+@media(max-width:800px){
+  .cf-photos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cf-photos-grid img{height:320px}
+  .cf-photos-controls{align-items:start;flex-direction:column}
+  .cf-photos-controls label,.cf-photos-controls input{width:100%}
+  .cf-photo-teaser-carousel{--cf-photo-gap:12px;--cf-photo-visible:min(2,var(--cf-photo-total,3))}
+  .cf-photo-teaser .cf-photo-card img{height:230px}
+}
+@media(max-width:620px){
+  .cf-photos-wrap{width:calc(100% - 28px)}
+  .cf-photos-main-nav{min-height:78px;gap:14px}
+  .cf-photos-brand img{width:48px;height:48px}
+  .cf-photos-brand-copy strong{font-size:16px}
+  .cf-photos-brand-copy small{font-size:9px;letter-spacing:1.8px}
+  .cf-photos-nav-links{gap:14px 16px}
+  .cf-photos-nav-links a{font-size:12px}
+  .cf-photos-cta{width:100%}
+  .cf-photos-hero-shell{padding-top:24px}
+  .cf-photos-hero{padding-top:22px}
+  .cf-photos-hero h1{letter-spacing:-2px}
+  .cf-photos-controls h2{font-size:25px}
+  .cf-photos-grid{gap:12px}
+  .cf-photos-grid img{height:230px}
+  .cf-photo-card-caption{padding:12px;gap:8px;flex-wrap:wrap;font-size:13px}
+  .cf-photo-card-caption strong{font-size:22px}
+  .cf-photo-card-caption span{font-size:11px}
+  .cf-photo-teaser-carousel{--cf-photo-visible:1}
+  .cf-photo-teaser-hint{font-size:9px;letter-spacing:.08em}
+  .cf-photo-teaser .cf-photo-card img{height:340px}
+}
+
+/* Fotos dos jogos: mesmo cabeçalho usado no index.html.
+   Os estilos principais vêm de header-ferrari-v12-19.css, evitando a antiga logo quadrada. */
+.cf-photos-page .site-header.cf-site-header .cf-brand .brand-logo {
+  border-radius: 9px;
+  overflow: hidden;
+}
+.cf-photos-page .site-header.cf-site-header .cf-navbar-links .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 10px;
+  right: 10px;
+  display: block;
+  height: 2px;
+  border-radius: 3px;
+  background: #ffa510;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .3s ease;
+}
+.cf-photos-page .site-header.cf-site-header .cf-navbar-links .nav-link:hover::after,
+.cf-photos-page .site-header.cf-site-header .cf-navbar-links .nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+.cf-photos-page .site-header.cf-site-header .cf-navbar-links .nav-link[aria-current="page"] {
+  color: #ffcd74;
+}
+@media (max-width: 991px) {
+  .cf-photos-page .site-header.cf-site-header .cf-main-navbar {
+    max-width: 100%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cf-photo-teaser-track.is-animated{transition:none}
+  .cf-photo-teaser-arrow{transition:none}
+}

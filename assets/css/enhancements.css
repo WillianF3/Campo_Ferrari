@@ -1,0 +1,78 @@
+/* Camada de melhorias — responsiva, sem dependências externas */
+.gallery-story{position:relative}
+.gallery-story .gallery-viewport{border-radius:16px;border:1px solid #6f512b;box-shadow:0 26px 65px #0007;isolation:isolate}
+.gallery-story .gallery-slide{transition:opacity .6s ease,visibility .6s ease,transform .6s cubic-bezier(.2,.75,.25,1)}
+.gallery-story .gallery-slide.is-active .gallery-image-frame img{animation:gallery-zoom 7s ease-out both}
+.gallery-story .gallery-slide .gallery-image-frame{position:relative}
+.gallery-story .gallery-slide .gallery-image-frame:after{content:"";position:absolute;inset:auto 0 0;height:16%;background:linear-gradient(transparent,#0005);pointer-events:none}
+.gallery-story .gallery-slide.is-active figcaption>*:not(.gallery-big-number){animation:gallery-copy .55s ease both}
+.gallery-story .gallery-slide.is-active figcaption>*:nth-child(3){animation-delay:.08s}
+.gallery-story .gallery-slide.is-active figcaption>*:nth-child(4){animation-delay:.13s}
+@keyframes gallery-zoom{from{scale:1}to{scale:1.055}}
+@keyframes gallery-copy{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+.social-rail{position:fixed;right:15px;top:50%;transform:translateY(-50%);z-index:1050;display:grid;gap:11px}
+.social-rail-link{position:relative;display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:16px;color:#fff;text-decoration:none;box-shadow:0 9px 30px #0008;border:1px solid #ffffff55;transition:transform .25s,filter .25s}
+.social-rail-link svg{width:27px;height:27px;flex:none}
+.social-whatsapp{background:#168b51}.social-instagram{background:linear-gradient(140deg,#6d43cf,#c6337d 54%,#ef9d39)}
+.social-rail-link span{position:absolute;right:calc(100% + 10px);background:#181818;color:#fff;border:1px solid #605139;padding:7px 10px;border-radius:8px;font-size:12px;opacity:0;visibility:hidden;transform:translateX(5px);transition:opacity .2s,transform .2s;white-space:nowrap}
+.social-rail-link:hover,.social-rail-link:focus-visible{transform:translateX(-4px);filter:brightness(1.15);color:#fff}
+.social-rail-link:hover span,.social-rail-link:focus-visible span{opacity:1;visibility:visible;transform:translateX(0)}
+.social-rail-link:focus-visible,.gallery-story button:focus-visible{outline:3px solid #ffe082;outline-offset:3px}
+.map-panel{margin-top:35px;border:1px solid #514a38;border-radius:17px;overflow:hidden;background:#1e1e1e}
+.map-panel-heading{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.map-panel-heading strong{display:block;color:#fff;font-size:17px;margin-bottom:4px}
+.map-panel-heading small{display:block;color:#b9b6af;font-size:12px;line-height:1.5}
+.map-panel-heading a{color:var(--accent,#ffa510);font-weight:600;text-decoration:none}
+.map-panel iframe{display:block;width:100%;max-width:100%;height:450px;border:0;background:#252525}
+@media(max-width:650px){.social-rail{top:auto;bottom:75px;right:10px;transform:none;gap:9px}.social-rail-link{width:46px;height:46px;border-radius:14px}.social-rail-link svg{width:23px;height:23px}.gallery-story .gallery-viewport{border-radius:12px}.gallery-story .gallery-slide.is-active figcaption>*{animation-duration:.35s}.map-panel iframe{height:320px}}
+@media(prefers-reduced-motion:reduce){.gallery-story .gallery-slide,.gallery-story .gallery-slide img,.gallery-story .gallery-slide figcaption>*,.social-rail-link,.social-rail-link span{animation:none!important;transition:none!important;transform:none!important}}
+
+/* O cursor e os controles não interrompem a reprodução automática. */
+
+/* Carrossel v4: setas na imagem, reprodução contínua, sem faixas inferiores. */
+.gallery-story .gallery-big-number{display:none!important}
+.gallery-story .gallery-viewport{position:relative}
+.gallery-overlay-controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;z-index:5;pointer-events:none;padding:0 clamp(10px,1.6vw,24px)}
+.gallery-overlay-controls .gallery-side-arrow{pointer-events:auto;display:grid;place-items:center;width:52px;height:52px;min-width:44px;min-height:44px;border:1px solid #ffffff63;border-radius:50%;background:#121212d8;color:#fff;box-shadow:0 9px 28px #0009;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);cursor:pointer;transition:background .2s,border-color .2s,transform .2s,box-shadow .2s}
+.gallery-overlay-controls .gallery-side-arrow svg{width:23px;height:23px;display:block}
+.gallery-overlay-controls .gallery-side-arrow:hover{background:var(--accent);border-color:var(--accent);color:#151515;transform:scale(1.08);box-shadow:0 0 22px #ffa51055}
+.gallery-overlay-controls .gallery-side-arrow:active{transform:scale(.97)}
+.gallery-overlay-controls .gallery-side-arrow:focus-visible{outline:3px solid #fff;outline-offset:3px;background:var(--accent);color:#151515}
+@media(max-width:650px){
+  .gallery-overlay-controls{inset:0 0 auto;height:370px;padding:0 10px}
+  .gallery-overlay-controls .gallery-side-arrow{width:43px;height:43px;min-height:43px;min-width:43px}
+  .gallery-overlay-controls .gallery-side-arrow svg{width:21px;height:21px}
+}
+@media(prefers-reduced-motion:reduce){
+  .gallery-overlay-controls .gallery-side-arrow{transition:none!important}
+  .gallery-overlay-controls .gallery-side-arrow:hover,.gallery-overlay-controls .gallery-side-arrow:active{transform:none!important}
+}
+
+/* Galeria: transições consistentes e navegação manual sem interromper o avanço. */
+.gallery-story .gallery-slide{transition:opacity .55s ease,visibility .55s ease,transform .55s ease}
+.gallery-story .gallery-slide.is-active .gallery-image-frame img{animation:gallery-zoom 6.2s ease-out both}
+.gallery-story .gallery-overlay-controls .gallery-side-arrow{touch-action:manipulation}
+/* Perguntas frequentes interativas com detalhes nativos. */
+.faq .faq-item{padding:0;margin:0;border-bottom:1px solid #494136;transition:border-color .2s,background .2s}
+.faq .faq-item:hover,.faq .faq-item[open]{border-color:#966c23;background:linear-gradient(90deg,#ffa5100c,transparent 68%)}
+.faq .faq-item>summary{position:relative;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:24px 12px 24px 18px;font-size:16px;font-weight:700;line-height:1.45;transition:color .2s;cursor:pointer}
+.faq .faq-item>summary::-webkit-details-marker{display:none}
+.faq .faq-item>summary:after{content:'+';flex:none;display:grid;place-items:center;width:28px;height:28px;border:1px solid #655436;border-radius:50%;font-size:22px;font-weight:400;color:var(--accent);line-height:1;transition:transform .25s,border-color .25s,background .25s}
+.faq .faq-item[open]>summary{color:#ffd27b}
+.faq .faq-item[open]>summary:after{content:'−';border-color:var(--accent);background:#ffa51013;transform:rotate(180deg)}
+.faq .faq-item>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:5px}
+.faq .faq-answer{padding:0 42px 24px 18px;animation:faq-fade-in .3s ease both}
+.faq .faq-answer p{padding:0;margin:0;color:#c9c6bf;line-height:1.8;font-size:14px}
+.faq .faq-answer strong{color:#fff}
+.faq .faq-contact{display:inline-flex;margin-top:15px;padding:11px 14px;border:1px solid #ad7426;border-radius:7px;background:#ffa51015;color:#ffbf50;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s,transform .2s}
+.faq .faq-contact:hover{background:#ffa5102b;color:#fff;transform:translateY(-2px)}
+.faq .faq-contact:focus-visible{outline:2px solid #ffe082;outline-offset:3px}
+@keyframes faq-fade-in{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.faq .faq-item>summary{font-size:15px;padding:18px 8px 18px 10px}.faq .faq-answer{padding:0 14px 19px 10px}}
+@media(prefers-reduced-motion:reduce){.faq .faq-answer,.faq .faq-contact,.faq .faq-item>summary:after,.gallery-story .gallery-slide.is-active .gallery-image-frame img{animation:none!important;transition:none!important;transform:none!important}}
+
+/* Evita texto assistivo visível quando o CSS externo (Bootstrap) não carregar. */
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* Sem faixa de status, miniaturas nem botão de pausa abaixo das fotos. */
+.gallery-story .gallery-viewport{margin-bottom:0}

@@ -1,0 +1,74 @@
+/* V12.29 — Agenda recolhida por padrão, acessível por mouse, teclado e toque. */
+#agendar { scroll-margin-top: 100px; }
+.cf-booking-details {
+  border: 1px solid rgba(255, 172, 44, .42);
+  border-radius: 18px;
+  background: linear-gradient(120deg, #332a22 0%, #282521 56%, #211e1c 100%);
+  box-shadow: 0 15px 45px #0003;
+  overflow: hidden;
+}
+.cf-booking-details > summary.cf-booking-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(14px, 2.3vw, 38px);
+  margin: 0;
+  padding: clamp(20px, 3vw, 34px);
+  cursor: pointer;
+  list-style: none;
+  border: none;
+  border-radius: 18px;
+  transition: background-color .2s ease;
+}
+.cf-booking-details > summary::-webkit-details-marker { display:none; }
+.cf-booking-details > summary.cf-booking-summary::marker { content: ''; }
+.cf-booking-details > summary.cf-booking-summary:hover { background: rgba(255,175,49,.075); }
+.cf-booking-details > summary.cf-booking-summary:focus-visible {
+  outline: 3px solid #ffc36c;
+  outline-offset: -4px;
+}
+.cf-booking-summary-copy { display:block; min-width:0; flex: 1 1 40%; }
+.cf-booking-summary-copy .eyebrow { display:block; font-size:11px; margin:0 0 7px; }
+.cf-booking-summary-title {
+  display:block; font-size:clamp(25px,3vw,43px); font-weight:900;
+  color:#fff5e7; line-height:1.07; letter-spacing:-.035em;
+}
+.cf-booking-summary-description {
+  flex: 1 1 38%; min-width:200px; color:#dfd4c6;
+  font-size:clamp(12px,1vw,14px); line-height:1.65;
+}
+.cf-booking-summary-cta {
+  flex:0 0 auto; display:inline-flex; gap:14px; align-items:center;
+  justify-content:center; min-width:152px; padding:13px 18px;
+  background:#ffa510; color:#231506; border-radius:999px;
+  font-size:13px; line-height:1.2; font-weight:900; white-space:nowrap;
+}
+.cf-booking-summary-chevron { display:inline-block; font-size:23px; line-height:.6; transform-origin:center; transition:transform .2s; }
+.cf-booking-summary-close { display:none; }
+.cf-booking-details[open] > summary .cf-booking-summary-close { display:inline; }
+.cf-booking-details[open] > summary .cf-booking-summary-open { display:none; }
+.cf-booking-details[open] > summary .cf-booking-summary-chevron { transform:rotate(180deg); }
+.cf-booking-details[open] > summary.cf-booking-summary {
+  border-bottom:1px solid #705339; border-radius:18px 18px 0 0;
+}
+.cf-booking-details > .cf-booking { margin: 20px 22px 24px; }
+.cf-booking-details > noscript p { padding: 0 24px 18px; }
+@media(max-width:850px) {
+  .cf-booking-details > summary.cf-booking-summary { flex-wrap:wrap; }
+  .cf-booking-summary-description { flex-basis:45%; }
+  .cf-booking-summary-cta { width:100%; }
+}
+@media(max-width:670px) {
+  .cf-booking-details > summary.cf-booking-summary {
+    display:flex; flex-direction:column; align-items:stretch;
+    padding:20px 18px; gap:12px;
+  }
+  .cf-booking-summary-copy, .cf-booking-summary-description { min-width:0; flex:auto; }
+  .cf-booking-summary-description { font-size:12px; }
+  .cf-booking-details > .cf-booking { margin:12px 9px 12px; }
+  #agendar { scroll-margin-top: 76px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .cf-booking-details > summary.cf-booking-summary,
+  .cf-booking-summary-chevron { transition:none; }
+}

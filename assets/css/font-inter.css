@@ -1,0 +1,21 @@
+/* Campo Ferrari V12.11 — tipografia Inter.
+   Fonte carregada pelo Google Fonts no <head>. Fallbacks nativos caso esteja offline.
+   Tipos e pesos originais preservados; apenas a familia tipografica foi unificada. */
+:root {
+  --cf-font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bs-body-font-family: var(--cf-font-family);
+}
+html, body,
+button, input, select, textarea, optgroup, option,
+.btn, .nav-link, .navbar, .accordion, .form-control, .form-select {
+  font-family: var(--cf-font-family);
+}
+/* Os elementos especiais herdavam famílias distintas, agora usam Inter. */
+.cf-hero-mainword, .cf-hero-script,
+.hero.hero-cinematic.hero-pulso-ferrari,
+.hero.hero-cinematic.hero-pulso-ferrari *,
+.manifesto, .manifesto *,
+.gallery-editorial, .gallery-editorial *,
+.booking-wizard, .booking-wizard * {
+  font-family: var(--cf-font-family);
+}

@@ -1,0 +1,7 @@
+/* Campo Ferrari V12.38 — oculta banners informativos de precificação.
+   Os preços de entrada e avisos úteis dentro dos cards continuam visíveis.
+   Regra de compatibilidade com versões antigas do HTML/JS. */
+#modalidades #experience-pricing-status,
+#modalidades .experience-pricing-status {
+  display: none !important;
+}

@@ -1,0 +1,229 @@
+/* V12.31 — Carrossel infinito em cards, inspirado no exemplo enviado.
+   Escopo restrito a #galeria: não interfere nos outros carrosséis do site. */
+#galeria.cf-gallery-marquee-section {
+  background: radial-gradient(ellipse 76% 75% at 50% 40%, rgba(255,165,16,.07), transparent 74%), #1a1714;
+  overflow: hidden;
+}
+#galeria .cf-gallery-marquee-shell {
+  --cf-card-width: 286px;
+  --cf-card-height: 470px;
+  --cf-card-gap: 22px;
+  --cf-marquee-speed: 18s;
+  margin-top: 18px;
+  width: 100%;
+  position: relative;
+}
+#galeria .cf-marquee-window {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #a96d25 transparent;
+}
+#galeria .cf-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+}
+#galeria .cf-marquee-group {
+  display: flex;
+  flex: none;
+  align-items: stretch;
+  gap: var(--cf-card-gap);
+  padding-right: var(--cf-card-gap);
+}
+#galeria .cf-marquee-card {
+  flex: 0 0 var(--cf-card-width);
+  width: var(--cf-card-width);
+  height: var(--cf-card-height);
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 208px 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(255,176,50,.37);
+  border-radius: 16px;
+  background: linear-gradient(140deg, #342a20, #25201b 72%, #211b17);
+  color: #f7eee3;
+  box-shadow: 0 14px 30px rgba(0,0,0,.26), inset 0 1px rgba(255,212,147,.13);
+  scroll-snap-align: start;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+#galeria .cf-marquee-card:hover,
+#galeria .cf-marquee-card:focus-within {
+  border-color: #ffb32b;
+  box-shadow: 0 16px 36px rgba(0,0,0,.4), 0 0 0 1px rgba(255,179,43,.18);
+}
+#galeria .cf-marquee-card > img {
+  display: block;
+  width: 100%;
+  height: 208px;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 0;
+  background: #181512;
+}
+#galeria .cf-marquee-card-body {
+  min-width: 0;
+  padding: 19px 19px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+#galeria .cf-marquee-kicker {
+  color: #f8b43c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  line-height: 1.3;
+}
+#galeria .cf-marquee-card h3 {
+  color: #fff7e9;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.14;
+  margin: 0;
+}
+#galeria .cf-marquee-card p {
+  color: #d9c9b9;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+#galeria .cf-marquee-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto;
+  border-radius: 7px;
+  padding: 9px 12px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffbf53;
+  border: 1px solid #b77a29;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+#galeria .cf-marquee-link:hover,
+#galeria .cf-marquee-link:focus-visible {
+  background: #ffab19;
+  color: #1a1207;
+  border-color: #ffd178;
+  outline: 2px solid #ffe0a4;
+  outline-offset: 2px;
+}
+#galeria .cf-marquee-caption {
+  margin: 15px 0 0;
+  color: #bbac97;
+  font-size: 11px;
+  letter-spacing: .025em;
+}
+/* V12.33 — loop com rolagem horizontal nativa em touchscreens, mouse e teclado.
+   O scroll nativo é preservado como fallback na ausência de JavaScript. */
+#galeria .cf-gallery-marquee-shell.cf-marquee--ready .cf-marquee-window {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  touch-action: auto; /* não bloqueia o swipe horizontal nativo no celular */
+  -webkit-overflow-scrolling: touch; /* inércia suave no iOS */
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+#galeria .cf-gallery-marquee-shell.cf-marquee--ready .cf-marquee-window::-webkit-scrollbar {
+  display: none;
+}
+#galeria .cf-gallery-marquee-shell.cf-marquee--ready .cf-marquee-track {
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
+}
+#galeria .cf-marquee-window.is-dragging,
+#galeria .cf-marquee-window.is-dragging * {
+  cursor: grabbing !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+#galeria .cf-marquee-card img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+#galeria .cf-marquee-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 15px;
+}
+#galeria .cf-marquee-footer .cf-marquee-caption {
+  margin: 0;
+}
+#galeria .cf-marquee-actions {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 10px;
+}
+#galeria .cf-marquee-nav {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #bb8435;
+  border-radius: 50%;
+  color: #ffbd48;
+  background: #251e18;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+#galeria .cf-marquee-nav:hover {
+  background: #ffa510;
+  color: #18110a;
+  transform: translateY(-2px);
+}
+#galeria .cf-marquee-nav:focus-visible,
+#galeria .cf-marquee-window:focus-visible {
+  outline: 2px solid #ffd18b;
+  outline-offset: 3px;
+}
+@media (min-width: 1100px) {
+  #galeria .cf-gallery-marquee-shell { --cf-card-width: 290px; }
+}
+@media (max-width: 600px) {
+  #galeria .cf-gallery-marquee-shell {
+    --cf-card-width: min(79vw, 280px);
+    --cf-card-height: 455px;
+    --cf-card-gap: 14px;
+    --cf-marquee-speed: 21s;
+  }
+  #galeria .cf-marquee-card { grid-template-rows: 190px 1fr; border-radius: 13px; }
+  #galeria .cf-marquee-card > img { height: 190px; }
+  #galeria .cf-marquee-card-body { padding: 17px 16px 18px; }
+  #galeria .cf-marquee-card h3 { font-size: 20px; }
+  #galeria .cf-gallery-marquee-shell.cf-marquee--ready .cf-marquee-window {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  }
+  #galeria .cf-marquee-footer { align-items: center; }
+  #galeria .cf-marquee-caption { max-width: 65%; }
+  #galeria .cf-marquee-nav { width: 40px; height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #galeria .cf-gallery-marquee-shell.cf-marquee--ready .cf-marquee-window {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  #galeria .cf-marquee-card,
+  #galeria .cf-marquee-link,
+  #galeria .cf-marquee-nav { transition: none !important; }
+}

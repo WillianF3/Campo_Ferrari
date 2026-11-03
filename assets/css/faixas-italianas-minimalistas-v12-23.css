@@ -1,0 +1,127 @@
+/*
+ * CAMPO FERRARI V12.23 — Faixas italianas espessas,
+ * com destaque vibrante somente ao passar o cursor sobre cada faixa.
+ * Camadas decorativas isoladas. Nada muda na estrutura visual do hero,
+ * vídeo, links, navegação, agendamentos ou administração.
+ */
+
+.hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe {
+  position: absolute;
+  display: block;
+  z-index: 0;
+  width: clamp(560px, 64vw, 1100px);
+  /* V12.21: 18–31px; agora 28–44px — aumento moderado. */
+  height: clamp(28px, 3.05vw, 44px);
+  transform: rotate(-45deg);
+  transform-origin: center;
+  border: 0;
+  border-radius: 0;
+  pointer-events: auto;
+  cursor: default;
+  opacity: .88;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 128, 63, .82) 0%,
+    rgba(0, 128, 63, .82) 30%,
+    transparent 30%, transparent 35%,
+    rgba(240, 242, 237, .76) 35%,
+    rgba(240, 242, 237, .76) 65%,
+    transparent 65%, transparent 70%,
+    rgba(184, 37, 51, .82) 70%,
+    rgba(184, 37, 51, .82) 100%
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 77%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 77%, transparent 100%);
+  transition: opacity .32s ease, filter .32s ease;
+}
+
+/* Camada superior luminosa — transição gradual, sem trocar o fundo de forma brusca. */
+.hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #00cf69 0%, #00cf69 30%,
+    transparent 30%, transparent 35%,
+    #ffffff 35%, #ffffff 65%,
+    transparent 65%, transparent 70%,
+    #ff3449 70%, #ff3449 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .32s ease;
+}
+
+/* A esquerda permanece intacta. A direita é contida no espaço anterior ao divisor. */
+.hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe--left {
+  top: 20%;
+  left: -20%;
+}
+/* A janela de recorte acaba exatamente na borda superior da faixa informativa.
+   Seu height é medido pelo script e atualizado caso o layout mude. */
+.hero.hero-cinematic.hero-pulso-ferrari > .cf-italian-stripe-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% - 130px); /* fallback sem JavaScript */
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe--right {
+  right: -12%; /* deslocada ~8vw para o centro, sem tocar na faixa esquerda */
+  bottom: 12%;
+}
+
+/* Cada faixa reage ao cursor sobre ela, não ao mouse em qualquer parte da seção. */
+@media (hover: hover) and (pointer: fine) {
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe:hover {
+    opacity: 1;
+    filter: brightness(1.12) saturate(1.25) drop-shadow(0 0 8px rgba(255,255,255,.28));
+  }
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Conteúdo e vídeo seguem à frente das faixas. O frame, por ocupar todo
+   o hero mesmo nas regiões vazias, deixa os eventos do mouse atravessarem
+   seu fundo transparente para detectar SOMENTE a faixa sob o cursor. */
+.hero.hero-cinematic.hero-pulso-ferrari > .cf-hero-frame {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Restauramos integralmente os cliques/hover/teclado dos controles e dos
+   títulos que já têm microinterações, sem criar zonas de clique invisíveis. */
+.hero.hero-cinematic.hero-pulso-ferrari > .cf-hero-frame :is(
+  a, button, input, select, textarea, summary, label, [tabindex], [role="button"]
+) {
+  pointer-events: auto;
+}
+
+@media (max-width: 767px) {
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe {
+    width: 115vw;
+    height: 23px;
+    opacity: .62;
+  }
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe--left {
+    left: -63vw;
+    top: 17%;
+  }
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe--right {
+    right: -51vw;
+    bottom: 12%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe,
+  .hero.hero-cinematic.hero-pulso-ferrari .cf-italian-stripe::before {
+    transition: none;
+  }
+}

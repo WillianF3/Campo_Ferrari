@@ -1,0 +1,79 @@
+/* Campo Ferrari V12.2 — campanha editorial inspirada em pulso.
+   Escopo exclusivo da abertura. Reservas, API e área administrativa intactas. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Playfair+Display:ital,wght@1,500;1,700&display=swap');
+.hero.hero-pulso {
+  --cfp-bg:#141414; --cfp-lime:#d9ff38; --cfp-light:#f2f1e9; --cfp-dim:#c0c0b5;
+  background:var(--cfp-bg)!important; color:var(--cfp-light); position:relative;
+  isolation:isolate; overflow:hidden; padding:0; border-bottom:1px solid #3c3c37;
+  min-height:max(720px,calc(100svh - 91px));
+  font-family:Montserrat,Arial,sans-serif;
+}
+.hero.hero-pulso::before,.hero.hero-pulso::after {content:none!important;display:none!important}
+.hero-pulso .cfp-inner.container {max-width:1640px; width:100%; min-height:max(720px,calc(100svh - 91px));padding:30px clamp(23px,3.6vw,64px) 35px; position:relative; z-index:2; display:flex; flex-direction:column; justify-content:space-between}
+.hero-pulso .cfp-grain {position:absolute;inset:0;pointer-events:none;z-index:10;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+.hero-pulso .cfp-topline {display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:5}
+.hero-pulso .cfp-location {display:inline-flex;align-items:center;gap:10px;font:700 clamp(9px,.85vw,12px)/1.45 Montserrat,Arial,sans-serif;letter-spacing:.16em;color:#d1d1c5;text-transform:uppercase}
+.hero-pulso .cfp-location>span:not(.cfp-live-dot) {color:var(--cfp-lime);font-weight:900}
+.hero-pulso .cfp-live-dot {width:9px;height:9px;flex:0 0 9px;background:#10b981;border-radius:100%;box-shadow:0 0 10px #10b98199;animation:cfp-pulse 2.5s ease-in-out infinite}
+.hero-pulso .cfp-top-cta {display:inline-flex;align-items:center;justify-content:center;gap:15px;border-radius:999px;background:#ecece3;color:#111;text-decoration:none;padding:14px 19px;font:800 12px/1 Montserrat,Arial,sans-serif;white-space:nowrap;transition:background .24s,transform .24s;min-height:44px}
+.hero-pulso .cfp-top-cta:hover,.hero-pulso .cfp-top-cta:focus-visible {background:var(--cfp-lime);color:#111;transform:translateY(-2px)}
+.hero-pulso .cfp-center {min-height:510px;flex:1;position:relative;display:grid;place-items:center;isolation:isolate;padding:15px 0 24px;margin:10px 0}
+.hero-pulso .cfp-capsule {position:absolute;inset:auto;top:44%;left:50%;width:min(55vw,790px);height:min(29vw,418px);transform:translate3d(-50%,-50%,0);background:#0b0b0b url('../images/gallery/instagram-encontro.jpg') center/cover no-repeat;z-index:1; border-radius:9999px;clip-path:inset(0 round 9999px);overflow:hidden;isolation:isolate;backface-visibility:hidden;-webkit-backface-visibility:hidden;-webkit-mask-image:-webkit-radial-gradient(white,black);mask-image:radial-gradient(white,black);border:1px solid #f5f4eb33;box-shadow:0 0 68px #ffffff12}
+.hero-pulso .cfp-capsule:after {content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#14141425,transparent 35%,#14141430),linear-gradient(0deg,#1414146b,transparent 60%)}
+.hero-pulso .cfp-capsule video {width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;clip-path:inset(0 round 9999px);pointer-events:none;mix-blend-mode:luminosity;filter:brightness(.85) contrast(1.14) saturate(.3);-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.hero-pulso .cfp-display {position:relative;z-index:2;min-height:430px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;user-select:none}
+.hero-pulso .cfp-eyebrow {margin:8px 0 21px;font:800 clamp(9px,.8vw,12px)/1.5 Montserrat,Arial,sans-serif;letter-spacing:.28em;color:var(--cfp-light);text-shadow:0 2px 18px #000}
+.hero.hero-pulso h1.cfp-title {color:var(--cfp-lime)!important;white-space:nowrap;font-family:Montserrat,Arial,sans-serif!important;font-weight:900;font-size:clamp(4.2rem,14.4vw,14.8rem);line-height:.87;letter-spacing:-.075em;margin:0;text-transform:uppercase;text-shadow:0 10px 40px #0b0b0b75;transition:font-weight .6s cubic-bezier(.16,1,.3,1),letter-spacing .4s ease;cursor:default}
+.hero.hero-pulso h1.cfp-title.is-thin,.hero.hero-pulso h1.cfp-title:hover {font-weight:500}
+.hero-pulso .cfp-subtitle {font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;font-size:clamp(1.45rem,3.6vw,3.75rem);letter-spacing:.025em;line-height:1.12;color:var(--cfp-lime);text-transform:uppercase;margin:-.12em 0 23px;text-shadow:0 6px 20px #111;transition:font-weight .6s cubic-bezier(.16,1,.3,1);cursor:default}
+.hero-pulso .cfp-subtitle.is-thin,.hero-pulso .cfp-subtitle:hover {font-weight:500}
+.hero-pulso .cfp-brief {font:600 clamp(12px,1vw,15px)/1.55 Montserrat,Arial,sans-serif;max-width:650px;margin:0 0 20px;color:#fafaf1;text-shadow:0 3px 10px #111;user-select:text}
+.hero-pulso .cfp-center-actions {display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;user-select:auto}
+.hero-pulso .cfp-book,.hero-pulso .cfp-open-list {display:inline-flex;align-items:center;gap:12px;justify-content:center;min-height:51px;border-radius:999px;padding:14px 21px;font:800 11px/1.25 Montserrat,Arial,sans-serif;letter-spacing:.03em;text-decoration:none;transition:background .24s,transform .24s,color .24s}
+.hero-pulso .cfp-book {background:var(--cfp-lime);color:#101010;box-shadow:0 12px 32px #0008}
+.hero-pulso .cfp-book:hover {background:#f0ff99;color:#111;transform:translateY(-3px)}
+.hero-pulso .cfp-open-list {color:#fff;background:#141414bb;border:1px solid #f1f1e666}
+.hero-pulso .cfp-open-list:hover {background:#f5f5e7;color:#111;transform:translateY(-3px)}
+.hero-pulso .cfp-bottomline {z-index:5;position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:25px;border-top:1px solid #eeeeee39;padding-top:23px}
+.hero-pulso .cfp-positioning {display:flex;flex-direction:column;gap:9px;max-width:380px}
+.hero-pulso .cfp-positioning strong {font:600 clamp(12px,1vw,16px)/1.35 Montserrat,Arial,sans-serif;color:#eeeede}
+.hero-pulso .cfp-positioning span {font:400 clamp(11px,.85vw,14px)/1.35 Montserrat,Arial,sans-serif;color:#aaa99f}
+.hero-pulso .cfp-features {display:flex;align-items:center;gap:clamp(10px,1.5vw,22px);white-space:nowrap;color:#efefe5}
+.hero-pulso .cfp-features>span {display:flex;flex-direction:column;gap:6px;font:600 clamp(10px,.8vw,13px)/1.2 Montserrat,Arial,sans-serif}
+.hero-pulso .cfp-features b {font-size:clamp(19px,2vw,31px);color:var(--cfp-lime);letter-spacing:-.05em}
+.hero-pulso .cfp-features>i {display:block;flex:0 0 1px;height:37px;background:#deded155}
+.hero.hero-pulso a:focus-visible {outline:3px solid var(--cfp-lime);outline-offset:4px}
+@keyframes cfp-pulse {0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.22);opacity:.65}}
+@media(max-width:991px) {
+  .hero.hero-pulso,.hero-pulso .cfp-inner.container {min-height:760px}
+  .hero-pulso .cfp-capsule {width:min(72vw,630px);height:min(39vw,343px)}
+  .hero-pulso .cfp-bottomline {flex-direction:column;align-items:flex-start;gap:22px}
+  .hero-pulso .cfp-features {width:100%;justify-content:space-between;gap:12px}
+  .hero-pulso .cfp-center {min-height:495px}
+  .hero.hero-pulso h1.cfp-title {font-size:clamp(4.2rem,14.7vw,9rem)}
+}
+@media(max-width:640px) {
+  .hero.hero-pulso,.hero-pulso .cfp-inner.container {min-height:740px}
+  .hero-pulso .cfp-inner.container {padding:21px 19px 25px}
+  .hero-pulso .cfp-topline {gap:7px}
+  .hero-pulso .cfp-location {font-size:8px;letter-spacing:.025em;gap:6px;max-width:57%}
+  .hero-pulso .cfp-top-cta {padding:12px 11px;font-size:10px;gap:6px}
+  .hero-pulso .cfp-center {min-height:490px;margin:2px 0 12px}
+  .hero-pulso .cfp-capsule {top:40%;width:88vw;height:52vw;max-height:295px}
+  .hero-pulso .cfp-display {min-height:470px;justify-content:center;padding-top:58px}
+  .hero-pulso .cfp-eyebrow {font-size:8px;letter-spacing:.14em;margin:7px 0 15px}
+  .hero.hero-pulso h1.cfp-title {font-size:clamp(3.55rem,14.6vw,6rem);letter-spacing:-.075em;white-space:nowrap}
+  .hero-pulso .cfp-subtitle {font-size:clamp(1.35rem,5.6vw,2.3rem);margin:0 0 18px}
+  .hero-pulso .cfp-brief {font-size:12px;max-width:360px;margin-bottom:16px}
+  .hero-pulso .cfp-center-actions {flex-direction:column;width:min(100%,345px)}
+  .hero-pulso .cfp-book,.hero-pulso .cfp-open-list {width:100%;min-height:48px;font-size:10px}
+  .hero-pulso .cfp-bottomline {gap:17px}
+  .hero-pulso .cfp-features {gap:7px}
+  .hero-pulso .cfp-features>span {font-size:8px}
+  .hero-pulso .cfp-features b {font-size:22px}
+  .hero-pulso .cfp-features>i {height:28px}
+}
+@media(max-width:360px) {.hero.hero-pulso h1.cfp-title {font-size:14.2vw}.hero-pulso .cfp-location {max-width:52%}}
+@media(prefers-reduced-motion:reduce) {.hero-pulso .cfp-live-dot {animation:none}.hero.hero-pulso h1.cfp-title,.hero-pulso .cfp-subtitle,.hero-pulso a {transition:none}}
+/* Mantém o sistema de reservas visível e acessível após clicar no CTA. */
+#agendar {scroll-margin-top:104px}

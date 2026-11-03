@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#ffa510">
+  <title>Convite para jogar | Campo Ferrari</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/convite.css?v=20261031-autoedicao-v3">
+<link rel="stylesheet" href="/assets/css/header-ferrari-v12-19.css?v=20261031-unificado">
+<link rel="stylesheet" href="/assets/css/header-unificado-20261031.css?v=20261031-1">
+</head>
+<body>
+  <header class="site-header cf-site-header cf-unified-header" data-cf-unified-header>
+  <nav class="navbar navbar-expand-lg navbar-dark container cf-main-navbar" aria-label="Navegação principal">
+    <a href="/index.html#topo" class="navbar-brand cf-brand" aria-label="Campo Ferrari — página inicial">
+      <img src="/assets/images/logo.webp" class="brand-logo" width="60" height="60" alt="" />
+      <span class="cf-brand-copy"><span class="cf-brand-title">CAMPO FERRARI</span><span class="brand-sub">AIRSOFT · IOMERÊ / SC</span></span>
+    </a>
+    <div class="cf-mobile-nav-actions">
+      <a class="cf-mobile-admin" href="/admin/" aria-label="Abrir área administrativa" title="Administração"><svg aria-hidden="true" fill="none" width="16" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></a>
+      <button type="button" class="navbar-toggler" data-cf-header-toggle aria-controls="cf-global-menu" aria-expanded="false" aria-label="Abrir navegação"><span class="navbar-toggler-icon" aria-hidden="true"></span></button>
+    </div>
+    <div id="cf-global-menu" class="collapse navbar-collapse" data-cf-header-menu>
+      <ul class="navbar-nav ms-auto align-items-lg-center cf-navbar-links">
+        <li class="nav-item"><a class="nav-link" href="/index.html#campo">O campo</a></li>
+<li class="nav-item"><a class="nav-link" href="/index.html#modalidades">Experiências</a></li>
+<li class="nav-item"><a class="nav-link" href="/fotos.html">Fotos dos jogos</a></li>
+<li class="nav-item"><a class="nav-link" href="/index.html#contato">Contato</a></li>
+<li class="nav-item"><a class="nav-link" href="/index.html#duvidas">Dúvidas</a></li>
+<li class="nav-item"><a class="nav-link" href="/index.html#agendar">Lista aberta</a></li>
+        <li class="nav-item cf-admin-nav-item"><a class="cf-admin-nav-link" href="/admin/"><svg aria-hidden="true" fill="none" width="16" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg><span>Administração</span></a></li>
+      <li class="nav-item cf-booking-nav-item"><a class="cf-nav-booking cf-header-cta" href="/">Conheça o campo <span aria-hidden="true" class="cf-nav-arrow">↗</span></a></li>
+      </ul>
+    </div>
+    </nav>
+</header>
+  <main class="invite-main">
+    <div class="invite-intro"><p class="invite-eyebrow">SEU GRUPO. SUA PRÓXIMA MISSÃO.</p><h1>Você está convidado<br>para entrar em campo.</h1><p>Cadastre-se na lista fechada do seu grupo. A participação está limitada às vagas aprovadas pela equipe.</p></div>
+    <section class="invite-card" aria-labelledby="invite-title">
+      <div class="invite-card-heading"><span class="invite-badge" id="invite-badge">CONVITE EXCLUSIVO</span><h2 id="invite-title">Cadastro do jogador</h2></div>
+      <p class="invite-message" id="invite-message" role="status" aria-live="polite">Consultando seu convite…</p>
+      <button class="invite-secondary" id="invite-retry" type="button" hidden>Tentar novamente</button>
+      <dl class="invite-summary" id="invite-summary" hidden><div><dt>Data</dt><dd id="invite-date"></dd></div><div><dt>Turnos</dt><dd id="invite-period"></dd></div><div><dt>Vagas para cadastro</dt><dd id="invite-spots"></dd></div></dl>
+      <section class="invite-roster" id="invite-roster" hidden aria-labelledby="invite-roster-title">
+        <div class="invite-roster-heading"><h3 id="invite-roster-title">Jogadores cadastrados</h3><span class="invite-roster-count" id="invite-roster-count"></span></div>
+        <p class="invite-roster-help">Veja quem já confirmou. Os nomes aparecem para o grupo quando autorizados pelos jogadores; os telefones continuam privados.</p>
+        <ol class="invite-roster-list" id="invite-roster-list"></ol>
+        <p class="invite-edit-hint" id="invite-edit-hint" role="status" hidden></p>
+        <button class="invite-copy-link" id="invite-copy-roster" type="button" hidden>Copiar meu link individual de edição</button>
+        <p class="invite-roster-help">Precisa corrigir seus dados? Use o mesmo aparelho do cadastro ou seu link particular. <strong>Não é necessária aprovação do administrador.</strong></p>
+        <button class="invite-copy-link invite-open-edit" id="invite-open-edit" type="button" hidden>✎ Editar meu cadastro</button>
+        <section class="invite-recover" id="invite-recover" hidden aria-label="Abrir meu link individual">
+          <h4>Editar sem pedir autorização</h4>
+          <p class="invite-roster-help">Cole o link individual que você recebeu ao confirmar a inscrição. Ele libera somente o seu cadastro.</p>
+          <form id="invite-recover-form">
+            <label for="invite-edit-link">Meu link particular de edição</label>
+            <input id="invite-edit-link" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="Cole aqui seu link de edição" required>
+            <p id="invite-recover-feedback" class="invite-edit-feedback" role="status" aria-live="polite"></p>
+            <div class="invite-edit-buttons"><button class="invite-submit" id="invite-recover-submit" type="submit">Abrir minha edição</button><button class="invite-secondary" id="invite-recover-cancel" type="button">Cancelar</button></div>
+          </form>
+          <p class="invite-roster-help">Cadastros antigos feitos antes da criação dos links individuais precisam de uma identificação segura inicial. Não é possível editar outros jogadores apenas com o link do grupo.</p>
+        </section>
+        <form class="invite-edit-form" id="invite-edit-form" hidden>
+          <h4>Alterar meu nome</h4>
+          <label for="invite-edit-name">Nome completo</label>
+          <input id="invite-edit-name" name="name" type="text" minlength="2" maxlength="120" autocomplete="name" required>
+          <label class="invite-public-consent"><input id="invite-edit-public" type="checkbox"><span>Autorizo mostrar meu nome completo às pessoas com este convite (opcional).</span></label>
+          <p class="invite-edit-feedback" id="invite-edit-feedback" role="status" aria-live="polite"></p>
+          <div class="invite-edit-buttons"><button class="invite-submit" type="submit" id="invite-edit-save">Salvar alteração</button><button class="invite-secondary" type="button" id="invite-edit-cancel">Cancelar</button></div>
+        </form>
+      </section>
+      <form id="invite-form" hidden>
+        <p class="invite-form-intro">Preencha seus dados. Seu WhatsApp fica restrito à administração. Você escolhe se quer mostrar seu nome completo às pessoas com o convite.</p>
+        <fieldset id="invite-fields">
+          <label for="invite-name">Seu nome completo <span aria-hidden="true">*</span></label>
+          <input id="invite-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="120" required>
+          <label for="invite-phone">WhatsApp com DDD <span aria-hidden="true">*</span></label>
+          <input id="invite-phone" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" placeholder="(49) 99999-9999" aria-describedby="invite-phone-help" required>
+          <small id="invite-phone-help">Usado pela equipe para falar sobre este jogo.</small>
+          <div class="invite-consents"><label class="invite-public-consent"><input name="public_name_consent" type="checkbox"><span>Autorizo mostrar meu nome completo às pessoas que têm o link deste convite (opcional).</span></label><label><input name="responsible_adult" type="checkbox" required><span>Confirmo que tenho 18 anos ou mais e sou responsável por este cadastro.</span></label><label><input name="privacy_consent" type="checkbox" required><span>Autorizo o contato sobre este jogo e aceito a <a href="politica-de-privacidade.html" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.</span></label></div>
+          <button class="invite-submit" id="invite-submit" type="submit">Confirmar meu cadastro <span aria-hidden="true">↗</span></button>
+        </fieldset>
+      </form>
+      <section id="invite-success" class="invite-success" hidden aria-labelledby="invite-success-title"><span class="invite-check" aria-hidden="true">✓</span><h3 id="invite-success-title">Cadastro confirmado!</h3><p id="invite-success-text"></p><p>Você já está na relação de jogadores. É possível alterar seu nome pelo link individual de edição antes do jogo. Aguarde as orientações da equipe e combine os detalhes com o responsável pelo grupo.</p><button class="invite-copy-link" id="invite-copy-link" type="button" hidden>Copiar meu link particular de edição</button><button class="invite-copy-link invite-success-edit" id="invite-success-edit" type="button" hidden>✎ Corrigir meu nome agora</button><p class="invite-edit-feedback" id="invite-link-feedback" role="status"></p><a class="invite-secondary" href="./">Conhecer o Campo Ferrari <span aria-hidden="true">↗</span></a></section>
+      <p class="invite-note">Este convite pertence a uma lista fechada aprovada. Compartilhe somente com as pessoas do seu grupo.</p>
+    </section>
+  </main>
+  <footer class="invite-footer">Campo Ferrari · Airsoft em Iomerê, SC</footer>
+  <script type="module" src="assets/js/convite.js?v=20261031-autoedicao-v3"></script>
+<script src="/assets/js/header-unificado-20261031.js?v=20261031-1" defer></script>
+</body>
+</html>

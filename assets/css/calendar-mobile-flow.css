@@ -1,0 +1,55 @@
+/* Campo Ferrari V12.14 · agenda compacta para celular.
+   Comportamento limitado a telas estreitas: desktop mantém as duas colunas. */
+.cf-booking .cf-date-compact {
+  display: none;
+}
+@media (max-width: 759.98px) {
+  #cf-closed .cf-date-layout.cf-date-layout-collapsed .cf-calendar-wrap,
+  #cf-private-event .cf-date-layout.cf-date-layout-collapsed .cf-calendar-wrap {
+    display: none;
+  }
+  #cf-closed .cf-date-layout.cf-date-layout-collapsed .cf-date-compact,
+  #cf-private-event .cf-date-layout.cf-date-layout-collapsed .cf-date-compact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #493828;
+    border: 1px solid #c18a42;
+    border-radius: 10px;
+    padding: 13px 14px;
+    min-width: 0;
+  }
+  .cf-booking .cf-date-compact > div { display: flex; flex-direction: column; gap: 3px; }
+  .cf-booking .cf-date-compact > div > span {
+    font-size: 10px;
+    color: #ffc06c;
+    letter-spacing: .1em;
+    font-weight: 800;
+  }
+  .cf-booking .cf-date-compact strong {
+    font-size: 17px;
+    color: #fff8ee;
+    font-weight: 850;
+  }
+  .cf-booking .cf-date-compact button {
+    color: #1d160e;
+    background: #ffa510;
+    border: 1px solid #ffc266;
+    border-radius: 8px;
+    padding: 10px 13px;
+    font-size: 12px;
+    font-weight: 850;
+    min-height: 42px;
+    transition: filter .2s ease, transform .2s ease;
+  }
+  .cf-booking .cf-date-compact button:hover,
+  .cf-booking .cf-date-compact button:focus-visible { filter: brightness(1.08); }
+  .cf-booking .cf-date-layout.cf-date-layout-collapsed .cf-period-panel {
+    border-color: #a98150;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cf-booking .cf-date-compact button { transition: none; }
+}

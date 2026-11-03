@@ -1,0 +1,10 @@
+/* V12.30 — FAQ em sequência direta após o resumo de agendamento.
+   Ajusta somente o espaçamento entre essas duas seções. */
+#agendar { padding-bottom: clamp(20px, 3vw, 40px); }
+#agendar + #duvidas { padding-top: clamp(36px, 4vw, 56px); }
+#duvidas { scroll-margin-top: 100px; }
+@media (max-width: 767px) {
+  #agendar { padding-bottom: 22px; }
+  #agendar + #duvidas { padding-top: 34px; }
+  #duvidas { scroll-margin-top: 76px; }
+}

@@ -1,0 +1,273 @@
+:root{font-family:var(--cf-font-family);color:#f6f5f2;background:#151515;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#2a241e 0,transparent 65%),#151515}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid #5b5143;background:#282624;color:#fff;border-radius:7px;padding:10px 16px}button:hover{border-color:#ffa510}button.primary{background:#ffa510;color:#181008;border-color:#ffa510;font-weight:800}button.danger{border-color:#b95858;color:#ffd4d4}.top{height:68px;padding:0 max(24px,calc((100vw - 1260px)/2));display:flex;align-items:center;gap:24px;border-bottom:1px solid #494037;background:#191817}.top span{font-size:11px;letter-spacing:.18em;color:#a5a099}.top #logout{margin-left:auto}.brand{text-decoration:none;color:#fff;font-weight:800;letter-spacing:.05em}.brand b{color:#ffa510}main{max-width:1260px;margin:auto;padding:32px 24px 75px}.login-card{max-width:460px;margin:10vh auto;padding:32px;background:#23211f;border-radius:14px;border:1px solid #554733;box-shadow:0 15px 35px #0005}.login-card .mark{width:48px;height:48px;display:grid;place-items:center;background:#ffa510;color:#1d1205;font-weight:1000;border-radius:10px}.login-card h1{font-size:28px}.login-card p,.intro p,.pane p{color:#c7c0b4}.login-card small{display:block;color:#c7c0b4;margin-top:20px;line-height:1.6}.login-card form{display:grid;gap:16px}label{font-size:12px;font-weight:700;color:#e7d8bd;display:flex;flex-direction:column;gap:7px}input,select,textarea{color:#f6f5f2;padding:12px 13px;border-radius:6px;background:#171717;border:1px solid #524b42;min-width:0;width:100%}input:focus,select:focus{outline:2px solid #ffa510;outline-offset:1px}input[type=checkbox]{width:auto}h1,h2{letter-spacing:-.02em}h1{font-size:36px}h2{font-size:23px}.eyebrow{color:#ffa510!important;letter-spacing:.16em;font-size:11px}.intro,.section-head{display:flex;justify-content:space-between;align-items:center;gap:24px}.intro h1{margin:.1em 0}.intro p{margin:0 0 14px}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:26px 0}.stat{background:#23211e;border:1px solid #493d30;border-radius:10px;padding:18px}.stat strong{display:block;font-size:29px;color:#ffa510}.stat span{font-size:12px;color:#dad2c6}.tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid #574736;gap:6px;margin-bottom:24px}.tabs button{border:0;border-bottom:3px solid transparent;background:transparent;border-radius:0;color:#bdb4a9;padding:14px 17px}.tabs button.active{color:#ffa510;border-color:#ffa510}.pane{background:#211f1e;border:1px solid #463d32;border-radius:12px;padding:22px;min-height:180px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;min-width:650px}th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#bfb19c}td,th{border-bottom:1px solid #3b362f;padding:14px 10px;vertical-align:middle}td{font-size:13px}td small{display:block;color:#aaa093;margin-top:5px}td button,td select{padding:8px;font-size:12px}td select{min-width:145px}.inline-form{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin:16px 0 24px}.inline-form label{flex:1 1 170px}.checkbox{flex-direction:row;align-items:center}.stack{display:grid;gap:8px;margin:14px 0 25px}.stack article{background:#292522;border:1px solid #453e36;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:6px}.stack small{color:#bbb}.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.settings-grid .wide{grid-column:1/-1}.settings-grid button{justify-self:start}.alert{background:#3e2525;color:#ffd9cb;padding:12px 14px;border-radius:7px;border:1px solid #8c4545}.alert.ok{background:#183b2f;border-color:#498d67;color:#d8ffde}.muted{color:#b6aca1}hr{border:0;border-top:1px solid #524431;margin:26px 0}@media(max-width:850px){.stats{grid-template-columns:repeat(2,1fr)}.settings-grid{grid-template-columns:1fr}.intro{align-items:start;flex-direction:column}.top span{display:none}}@media(max-width:540px){main{padding:20px 12px}.login-card{margin:4vh 0;padding:22px}.stats{gap:8px}.pane{padding:12px}.tabs button{padding:10px;font-size:12px}h1{font-size:29px}}
+/* Lista aberta: gerenciamento de eventos com contagem de inscrições. */
+.admin-event span{flex:1;min-width:200px}
+.admin-event small{display:block;margin-top:6px;line-height:1.5}
+.admin-event-actions{display:flex;flex-wrap:wrap;gap:8px}
+#event-form .event-notes{flex:1 1 100%}
+#event-form .event-notes textarea{min-height:70px;resize:vertical}
+#event-filter{min-width:210px}
+@media(max-width:650px){.admin-event{align-items:stretch!important;flex-direction:column}.admin-event-actions{justify-content:flex-start}.pane .section-head{align-items:stretch;flex-direction:column}}
+
+/* Ações independentes para apagar sugestões e inscrições no painel. */
+.contact-actions{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.contact-actions button:disabled{opacity:.48;cursor:not-allowed}
+.contact-actions .danger:hover{background:#542323;border-color:#f28c8c}
+
+/* Relação de participantes visível apenas a administradores autenticados. */
+.admin-companion-title{font-weight:700;margin-top:9px!important;color:#ffcc87}
+.admin-companion-list{margin:5px 0 0;padding-left:20px;font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+
+/* Mensagem de divulgação — lista dinâmica da Lista Aberta no painel admin. */
+.whatsapp-share{margin-top:28px;padding:21px;background:#292420;border:1px solid #66523b;border-radius:12px;display:grid;gap:15px}
+.whatsapp-share-heading h3{font-size:19px;margin:0 0 6px;color:#ffb341}
+.whatsapp-share-heading p{margin:0;line-height:1.5;font-size:13px}
+.whatsapp-share-controls{display:grid;grid-template-columns:minmax(200px,1fr) minmax(230px,1fr);gap:16px;align-items:end}
+.whatsapp-share .whatsapp-share-opt{display:flex;flex-direction:row;align-items:flex-start;gap:9px;line-height:1.5;font-weight:500}
+.whatsapp-share-opt input{width:auto;margin-top:2px;accent-color:#ffa510}
+.whatsapp-share-opt small{color:#bdb1a0;font-size:11px}
+.whatsapp-share textarea{min-height:260px;resize:vertical;line-height:1.65;background:#181615;border-color:#695741;color:#fff7ed;font-size:13px;white-space:pre-wrap}
+.whatsapp-share textarea:disabled{opacity:.55}
+.whatsapp-share-actions{display:flex;flex-wrap:wrap;gap:9px}
+.whatsapp-share-actions button:disabled{opacity:.5;cursor:not-allowed}
+.whatsapp-share-note{margin:0!important;font-size:12px;line-height:1.5}
+.whatsapp-share-privacy{color:#baa892;line-height:1.6}
+@media(max-width:700px){.whatsapp-share{padding:13px}.whatsapp-share-controls{grid-template-columns:1fr}.whatsapp-share-actions button{flex:1 1 160px}}
+
+/* Nomes dos jogadores em reservas fechadas e consentimentos da Lista Aberta. */
+#reservations-body .admin-companion-list{margin-top:8px;color:#ffdbac}
+#open-list-body [data-consent-id]{border-color:#ac8248;color:#ffd28a}
+#open-list-body [data-consent-id]:disabled{opacity:.4;cursor:wait}
+
+
+/* Migracao de colunas: acao exclusiva do administrador. */
+.schema-repair{margin-top:28px;padding:19px;border:1px solid #675236;border-radius:12px;background:#2d2925;display:grid;gap:12px;justify-items:start}
+.schema-repair h3{margin:0;color:#ffb341}
+.schema-repair p{margin:0!important;line-height:1.55}
+.schema-repair #schema-missing{font-size:12px;overflow-wrap:anywhere;color:#d4c5b1}
+.schema-repair .schema-confirm{display:flex;flex-direction:row;align-items:flex-start;line-height:1.5;gap:10px}
+.schema-repair input[type=checkbox]{margin-top:3px;flex:none;accent-color:#ffa510}
+.schema-repair small{font-size:12px;line-height:1.5;color:#bfb19c}
+.schema-repair button:disabled{opacity:.45;cursor:not-allowed}
+
+/* Equipamentos registrados por participante — visivel apenas no painel autenticado. */
+#reservations-body .admin-rental-summary{color:#f6bf70;font-weight:700;margin-top:8px}
+#reservations-body .admin-reservation-players{margin:9px 0 0;padding-left:23px;min-width:200px}
+#reservations-body .admin-reservation-players li{padding:5px 0 8px;border-bottom:1px solid #514739}
+#reservations-body .admin-reservation-players li:last-child{border-bottom:0}
+#reservations-body .admin-player-name{font-weight:700;color:#fff7e8;display:block;font-size:13px}
+#reservations-body .admin-player-equipment{display:block;margin-top:2px;padding:2px 0;font-size:12px;line-height:1.4}
+#reservations-body .admin-player-equipment.is-rental{color:#ffc06a}
+#reservations-body .admin-player-equipment.is-own{color:#bfc4ba}
+@media(max-width:800px){#reservations-body .admin-reservation-players{min-width:160px}}
+
+/* Nome do cliente como acesso direto a ficha privada da equipe. */
+#reservations-body .admin-customer-link {display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff7e9;font-weight:800;line-height:1.5;border-bottom:1px solid transparent;overflow-wrap:anywhere;max-width:100%;transition:color .18s,border-color .18s}
+#reservations-body .admin-customer-link span {color:#ffaf37;font-size:1.15em;transition:transform .18s}
+#reservations-body .admin-customer-link:hover,#reservations-body .admin-customer-link:focus-visible {color:#ffb44f;border-bottom-color:#ffb44f}
+#reservations-body .admin-customer-link:hover span {transform:translate(2px,-2px)}
+#reservations-body .admin-customer-link:focus-visible {outline:2px solid #ffa510;outline-offset:4px}
+#reservations-body .admin-customer-action {color:#e6ae67;font-size:11px}
+
+/* V9 — Configurações seguras de notificações administrativas */
+.notification-settings{margin-top:30px;border:1px solid #6f5a39;background:linear-gradient(140deg,#29231c,#1a1c1c);padding:22px;border-radius:12px}
+.notification-settings h3{margin-top:0;color:#ffc466}
+.notification-settings>p{max-width:900px;color:#ddd0bf;line-height:1.6}
+.notification-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.notification-grid fieldset{min-width:0;border:1px solid #66503a;background:#201d1a;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.notification-grid legend{float:none;width:auto;font-size:1rem;font-weight:800;color:#ffb648;padding:0 8px}
+.notification-grid .checkbox{font-size:.9rem;flex-direction:row;align-items:center}
+.notification-grid small{color:#c8b7a3;font-size:.8rem;line-height:1.5}
+.notification-grid fieldset button{align-self:flex-start;margin-top:auto}
+.notification-grid>button{justify-self:start;grid-column:1/-1}
+.notification-status{min-height:1.5em;white-space:normal}
+.notification-status.error{color:#ffb5a8!important}
+.notification-status.success{color:#aef4c8!important}
+@media(max-width:700px){.notification-grid{grid-template-columns:1fr}.notification-settings{padding:16px}}
+
+/* V10.1 — contato clicavel da Lista Aberta e das reservas fechadas. */
+.admin-whatsapp-link{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px;max-width:100%;text-decoration:none;color:#a4edbd;font-weight:700;font-size:12px;overflow-wrap:anywhere;line-height:1.6;border-bottom:1px solid transparent}
+.admin-whatsapp-link span{font-size:11px;color:#87d6a1;font-weight:600}
+.admin-whatsapp-link:hover,.admin-whatsapp-link:focus-visible{color:#e0ffe7;border-bottom-color:#a4edbd}
+.admin-whatsapp-link:focus-visible{outline:2px solid #9ed3aa;outline-offset:3px}
+.admin-phone-unavailable{display:block;color:#aaa093;margin-top:5px}
+
+/* V10.2 — o botão Contatado é um link que abre o WhatsApp, inclusive após marcar contato. */
+.contact-actions .contact-whatsapp-button{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:8px;font-size:12px;line-height:normal;text-decoration:none;white-space:nowrap;border:1px solid #a87925;border-radius:7px;background:#282624;color:#ffc262;cursor:pointer;min-height:34px}
+.contact-actions .contact-whatsapp-button:hover,.contact-actions .contact-whatsapp-button:focus-visible{border-color:#ffae24;background:#3d3020;color:#ffe3ad}
+.contact-actions .contact-whatsapp-button:focus-visible{outline:2px solid #ffae24;outline-offset:2px}
+.contact-actions .contact-whatsapp-button.is-contacted{border-color:#675f53;color:#c9c0b5}
+.contact-actions .contact-whatsapp-button.is-contacted:hover{border-color:#ffa510;color:#fff}
+
+
+/* V12.3 — Sorteio de times por reserva, sem gravação no banco. */
+.reservation-actions{min-width:136px}
+.reservation-actions button{margin:3px 3px 3px 0}
+.reservation-actions .team-draw-open{display:block;margin-top:9px;border-color:#bd8133;color:#ffcf88;background:#3f3022;white-space:nowrap}
+.reservation-actions .team-draw-open:hover:not(:disabled){background:#594025;border-color:#ffb34f;color:#fff}
+.reservation-actions .team-draw-open:disabled{opacity:.45;cursor:not-allowed}
+.team-draw-hint{font-size:12px;margin:14px 0 2px!important;color:#c9b9a2!important;line-height:1.55}
+.team-draw-dialog{width:min(880px,calc(100vw - 30px));max-height:calc(100dvh - 36px);overflow-y:auto;background:#26211c;color:#fff5e9;border:1px solid #8b673d;border-radius:13px;box-shadow:0 20px 60px #000c;padding:25px}
+.team-draw-dialog::backdrop{background:rgba(0,0,0,.75)}
+.team-draw-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;border-bottom:1px solid #655038;padding-bottom:14px}
+.team-draw-top h3{font-size:25px;margin:0 0 8px;color:#ffbf66}
+.team-draw-top p{margin:0!important;color:#dbccb8!important;font-size:13px;line-height:1.6}
+.team-draw-top button{flex:none;padding:6px 11px}
+.team-draw-controls{display:flex;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-top:18px}
+.team-draw-controls label{flex:1 1 190px;max-width:260px}
+.team-draw-controls button{min-height:43px}
+.team-draw-explain{font-size:12px;line-height:1.55;margin:14px 0 18px;color:#d0bd9d!important}
+.team-draw-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.team-draw-card{border:1px solid #785b3b;background:#332a20;border-radius:10px;padding:17px;min-width:0}
+.team-draw-card h4{font-size:17px;color:#ffbb64;margin:0 0 12px}
+.team-draw-card h4 small{font-size:11px;color:#cbb99f;margin-left:6px}
+.team-draw-card ol{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.team-draw-card li{display:flex;align-items:baseline;gap:7px;border-bottom:1px solid #594632;padding:5px 0;line-height:1.5;overflow-wrap:anywhere}
+.team-draw-card li::before{content:attr(value) '.';color:#ffbc67;font-size:12px;font-weight:800;min-width:22px}
+.team-draw-status{font-size:12px;line-height:1.55;color:#c7f3cc!important;margin:17px 0 0!important;min-height:18px}
+@media(max-width:550px){.team-draw-dialog{padding:17px}.team-draw-controls{align-items:stretch}.team-draw-controls label{max-width:none;flex-basis:100%}.team-draw-controls button{flex:1 1 130px}}
+
+/* V12.12 — controle de turnos múltiplos no painel administrativo */
+.multi-period-setting{padding:19px 20px;background:linear-gradient(130deg,#302820,#26211d);border:1px solid #946733;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+.multi-period-setting-top{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.multi-period-setting-top>div{flex:1 1 240px}
+.multi-period-setting strong{font-size:16px;color:#ffbd61}
+.multi-period-setting p{margin:8px 0 0!important;color:#d5c7b6;font-size:13px;line-height:1.5}
+.multi-period-setting .multi-period-switch{flex:1 1 255px;display:flex;flex-direction:row;align-items:center;gap:11px;padding:13px 15px;border:1px solid #79552c;border-radius:10px;background:#1c1916;line-height:1.45;cursor:pointer;font-size:13px;font-weight:700}
+.multi-period-switch input{width:21px;height:21px;flex:none;accent-color:#ffa510;cursor:pointer}
+.multi-period-switch input:disabled{cursor:not-allowed}
+.multi-period-setting small{color:#e8c796;font-size:12px;line-height:1.55}
+.multi-period-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.multi-period-option{display:flex;flex-direction:column;gap:7px}
+.multi-period-setting .multi-period-switch{flex:none;width:100%;height:100%;align-items:flex-start;margin:0}
+.multi-period-switch>span{display:flex;flex-direction:column;gap:5px;min-width:0}
+.multi-period-setting .multi-period-switch span>strong{display:block;color:#ffc978;font-size:14px}
+.multi-period-switch>span>span{font-size:12px;color:#d5c7b6;font-weight:400}
+.multi-period-setting .multi-period-option small{display:block;min-height:37px;padding:0 3px}
+.multi-period-setting .multi-period-save-hint strong{font-size:12px;color:#f7c675}
+.multi-period-setting .multi-period-switch:has(input:checked){border-color:#c38935;background:#30271d}
+.multi-period-setting .multi-period-switch:has(input:focus-visible){outline:2px solid #ffc978;outline-offset:3px}
+.multi-period-setting .multi-period-switch:has(input:disabled){opacity:.65;cursor:not-allowed}
+@media(max-width:650px){.multi-period-setting{padding:14px}.multi-period-setting-top{gap:12px}.multi-period-options{grid-template-columns:1fr}.multi-period-setting .multi-period-option small{min-height:0}}
+
+/* V12.16: controles de ordenação do catálogo, acessíveis em celular e desktop. */
+.catalog-order-hint{font-size:13px;line-height:1.6;max-width:940px;margin:12px 0!important;color:#ded0bd!important}
+.catalog-order-hint strong{color:#ffc15c}
+.catalog-order-status{min-height:1.3em;margin:6px 0!important;font-size:12px!important;color:#b9ecc4!important}
+.catalog-order-status.catalog-order-error{color:#ffc3b7!important}
+.catalog-table{min-width:760px}
+.catalog-order-cell{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.catalog-position{font-weight:850;color:#ffc065;min-width:22px;font-variant-numeric:tabular-nums;text-align:center}
+.catalog-order-actions{display:flex;gap:5px}
+.catalog-order-actions button{font-size:17px;line-height:1;width:34px;height:34px;min-height:34px;display:grid;place-items:center;padding:0;color:#ffbc58;border:1px solid #876037;background:#34291e;border-radius:7px;transition:background .2s,border-color .2s,transform .2s}
+.catalog-order-actions button:hover:not(:disabled){background:#543920;border-color:#ffa510;transform:translateY(-2px)}
+.catalog-order-actions button:focus-visible{outline:2px solid #ffa510;outline-offset:2px}
+.catalog-order-actions button:disabled{opacity:.32;cursor:not-allowed}
+.catalog-table tbody tr[draggable="true"]{cursor:grab;transition:background .16s}
+.catalog-table tbody tr[draggable="true"]:hover{background:rgba(255,165,16,.06)}
+.catalog-table tbody tr.catalog-row-dragging{opacity:.48;cursor:grabbing}
+.catalog-table tbody tr.catalog-row-drop-target{background:rgba(255,165,16,.15);outline:1px dashed #ffa510;outline-offset:-1px}
+#catalog-body.is-order-saving{opacity:.67;pointer-events:none}
+@media(max-width:650px){.catalog-order-cell{gap:6px}.catalog-order-actions button{width:36px;height:36px}}
+@media(prefers-reduced-motion:reduce){.catalog-order-actions button,.catalog-table tbody tr{transition:none}}
+
+/* V12.17 — central de novas reservas e inscrições, disponível só após autenticação. */
+.admin-alert-center{margin:22px 0 26px;padding:20px;border:1px solid #79542d;background:linear-gradient(135deg,#32271d,#201e1c);border-radius:14px;color:#fff7e9}
+.admin-alert-top{display:flex;justify-content:space-between;align-items:start;gap:14px;flex-wrap:wrap}
+.admin-alert-top h2{margin:0 0 8px;font-size:clamp(18px,2vw,24px);color:#fff7e9}
+.admin-alert-top p{margin:0;color:#cdbda9;font-size:12px;line-height:1.5;max-width:710px}
+.admin-alert-badge{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:99px;padding:2px 7px;background:#ffa510;color:#16110b;font-size:12px;vertical-align:middle}
+.admin-alert-actions{display:flex;gap:9px;flex-wrap:wrap}
+.admin-alert-actions button{font-size:12px;border-color:#815c34}
+#admin-alerts-status{margin:13px 0;color:#e5ca9f;font-size:12px}
+.admin-alert-list{padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:9px;list-style:none;max-height:290px;overflow:auto}
+.admin-alert-item button{width:100%;height:100%;display:grid;gap:5px;text-align:left;background:#242220;border:1px solid #52483c;border-radius:9px;padding:12px 13px;transition:transform .2s,border-color .2s}
+.admin-alert-item button:hover,.admin-alert-item button:focus-visible{border-color:#ffa510;transform:translateY(-2px)}
+.admin-alert-item.is-unread button{background:#40301e;border-color:#ba7b28}
+.admin-alert-kind{font-size:10px;letter-spacing:.06em;color:#ffbd69;text-transform:uppercase;font-weight:700}
+.admin-alert-kind strong{color:#ffa510}
+.admin-alert-name{font-size:15px;font-weight:800;overflow-wrap:anywhere}
+.admin-alert-sub{font-size:11px;color:#ddcdb9;line-height:1.5}
+.admin-alert-empty{color:#c5b5a4;font-size:13px}
+.admin-alert-toast{position:fixed;z-index:2000;bottom:20px;right:20px;display:flex;justify-content:space-between;gap:17px;max-width:min(460px,calc(100vw - 32px));background:#221c16;color:#fff;border:2px solid #ffa510;box-shadow:0 15px 45px #000a;padding:15px;border-radius:12px}
+.admin-alert-toast[hidden]{display:none!important}
+.admin-alert-toast strong{color:#ffc46e}
+.admin-alert-toast p{font-size:12px;margin:6px 0 0;line-height:1.4}
+.admin-alert-toast-actions{display:flex;align-items:start;gap:7px}
+.admin-alert-toast-actions button{font-size:11px;white-space:nowrap;padding:8px}
+@media(max-width:650px){.admin-alert-center{padding:13px}.admin-alert-toast{bottom:12px;right:12px;left:12px;max-width:none;flex-wrap:wrap}.admin-alert-actions button{flex:1}}
+@media(prefers-reduced-motion:reduce){.admin-alert-item button{transition:none}}
+.admin-alert-badge[hidden]{display:none!important}
+
+/* Campo Ferrari V12.18 · ativação Web Push do administrador */
+.admin-push-center {margin:16px 0 22px;padding:20px;border:1px solid #655036;border-radius:12px;background:#24201b}
+.admin-push-center h2 {margin:0 0 10px;color:#fff3df;font-size:clamp(19px,2.5vw,24px)}
+.admin-push-center p {color:#dfd3c1;line-height:1.55;font-size:13px;margin:8px 0 14px}
+.admin-push-actions {display:flex;flex-wrap:wrap;gap:10px}
+.admin-push-actions button {min-height:44px}
+.admin-push-actions button:disabled {opacity:.55;cursor:not-allowed}
+.admin-push-center .admin-push-status {margin:12px 0 0;color:#ffcb76;font-weight:600}
+@media(max-width:640px){.admin-push-center {padding:16px}.admin-push-actions {flex-direction:column}.admin-push-actions button{width:100%}}
+
+/* V12.25 — painel de alertas compacto e histórico expansível. */
+.admin-alert-center.is-collapsed { padding:14px 18px; margin-bottom:18px; }
+.admin-alert-center.is-collapsed .admin-alert-top {align-items:center}
+.admin-alert-heading { flex:1 1 250px; min-width:0; }
+.admin-alert-center .admin-alert-heading h2 { margin-bottom:5px; }
+.admin-alert-center .admin-alert-heading p { font-size:12px; color:#e0c9a8; }
+.admin-alert-toggle { flex:0 0 auto; padding:10px 14px; font-size:12px; font-weight:700; border-color:#815c34; }
+.admin-alert-toggle:hover,.admin-alert-toggle:focus-visible { border-color:#ffa510; }
+.admin-alert-toggle:focus-visible { outline:2px solid #ffa510; outline-offset:2px; }
+.admin-alert-details[hidden] { display:none!important; }
+.admin-alert-details { padding-top:15px; }
+.admin-alert-help { margin:0 0 12px; color:#cdbda9; font-size:12px; line-height:1.5; }
+.admin-alert-center .admin-alert-actions { justify-content:flex-start; }
+.admin-alert-center .admin-alert-list { margin-bottom:0; }
+/* Web Push agora pertence à aba Configurações, perto das opções de notificação. */
+[data-pane="settings"] .admin-push-center { margin:22px 0; }
+@media (max-width:650px) {
+ .admin-alert-center.is-collapsed {padding:12px 14px}
+ .admin-alert-top {align-items:center}
+ .admin-alert-toggle { width:100%; }
+}
+
+/* V12.40 - configuracoes de turno: status legivel e chamada de migracao segura. */
+.multi-period-setting{gap:16px;min-width:0}
+.multi-period-options{align-items:stretch;gap:14px}
+.multi-period-setting .multi-period-option{display:flex;flex-direction:column;min-width:0;gap:9px;align-items:stretch}
+.multi-period-setting .multi-period-switch{height:auto;min-height:98px;flex:0 0 auto;align-items:flex-start}
+.multi-period-setting .multi-period-option small{min-height:0;height:auto;margin:0;padding:0 4px;line-height:1.5;overflow-wrap:anywhere;position:static}
+.multi-period-setting .multi-period-save-hint{display:block;min-height:0;line-height:1.5;margin:0;padding:0 3px}
+.multi-period-migration{display:grid;gap:9px;padding:15px 16px;border:1px solid #c48934;border-radius:10px;background:#372917;min-width:0}
+.multi-period-migration[hidden],.multi-period-save-hint[hidden]{display:none!important}
+.multi-period-migration strong{font-size:14px;color:#ffcf80}
+.multi-period-setting .multi-period-migration p{font-size:12px;color:#f5dfbb;margin:0!important;line-height:1.55}
+.multi-period-migration button{justify-self:start;min-height:40px;border:1px solid #ffa510;color:#ffda97;font-size:12px;font-weight:700;padding:9px 13px}
+@media(max-width:650px){.multi-period-options{grid-template-columns:minmax(0,1fr)}.multi-period-setting .multi-period-switch{min-height:0}.multi-period-migration button{width:100%}}
+
+/* Lista fechada: análise administrativa e convite liberado após aprovação. */
+.reservation-approval{display:grid;gap:10px;min-width:245px;max-width:430px}
+.reservation-approval-badge{justify-self:start;display:inline-flex;border:1px solid #8e6a37;background:#4a361c;color:#ffdc99;border-radius:40px;padding:6px 10px;font-size:11px;font-weight:800;line-height:1.4}
+.reservation-approval-badge.is-approved{background:#213c2b;border-color:#4f855e;color:#d0f4d6}
+.reservation-approval-badge.is-rejected{background:#432a29;border-color:#9b5550;color:#ffd2cb}
+.reservation-approval-actions{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.reservation-approval-actions button,.reservation-share-link{min-height:38px;font-size:12px;padding:8px 10px;border-radius:6px}
+.reservation-approval-actions .primary{background:#ffa510;border-color:#ffa510;color:#201508;font-weight:800}
+.reservation-approval button:disabled{opacity:.6;cursor:wait}
+.reservation-share-link{display:inline-flex;align-items:center;background:#283d2d;border:1px solid #63846b;color:#d9f7df;text-decoration:none;font-weight:700;line-height:1.4}
+.reservation-share-link:hover{border-color:#a8d7b2;color:white}
+.reservation-share-link:focus-visible{outline:2px solid #ffa510;outline-offset:3px}
+.reservation-invitation{display:grid;gap:8px}
+.reservation-approval .reservation-invitation label{display:grid;gap:6px;font-size:11px;color:#e6d2af}
+.reservation-approval .reservation-invitation input{width:100%;min-width:0;background:#171717;border:1px solid #716043;border-radius:6px;padding:10px;color:#e6dece;font-size:11px}
+.reservation-approval small{font-size:11px;line-height:1.5;color:#cbbb9f;margin:0}
+.reservation-approval .reservation-approval-feedback{margin:0;color:#ffd08a;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.reservation-approval-feedback:empty{display:none}
+.reservation-approval .reservation-approval-reason{font-size:12px;line-height:1.5;color:#ffd7ca;margin:0}
+.reservation-secondary-actions{display:flex;gap:7px;flex-wrap:wrap;border-top:1px solid #544432;margin-top:14px;padding-top:12px}
+.reservation-actions .team-draw-open{margin:0}
+.reservation-review-hint{max-width:900px;font-size:13px;line-height:1.6;margin:0 0 15px;color:#dbc7a8}
+.team-details-page .team-approval{padding:22px 24px;background:#27211b;border-left:1px solid #5f4a37;border-right:1px solid #5f4a37}
+.team-details-page .team-approval .reservation-approval{max-width:670px}
+.team-details-page #team-invite-count{color:#cbbca9;font-size:12px}
+@media(max-width:600px){.team-details-page .team-approval{padding:18px}.reservation-approval{min-width:230px}.team-details-page .team-approval .reservation-approval{min-width:0}.team-details-page #team-invite-count{line-height:1.5}}
+@media print{.team-approval{display:none!important}}

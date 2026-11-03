@@ -1,0 +1,55 @@
+/* Lista aberta: eventos criados pelo administrador, inscrição em evento específico. */
+#cf-open .cf-open-events{margin:18px 0 22px;padding:19px;border:1px solid #95724b;background:#4a3b2e;border-radius:12px}
+.cf-open-events-head{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cf-open-events-head .cf-field-heading{margin:0;color:#ffc371}
+.cf-booking .cf-event-reload{font-size:11px!important;padding:9px 11px!important;white-space:nowrap}
+#cf-events-list{display:grid;gap:11px}
+#cf-open .cf-event{border:1px solid #917254;border-radius:9px;background:#564434;padding:16px;display:flex;gap:16px;align-items:center;justify-content:space-between}
+#cf-open .cf-event.is-full{opacity:.76}
+#cf-open .cf-event-info{flex:1;min-width:0}
+#cf-open .cf-event strong{font-size:15px;color:#fff;line-height:1.4}
+#cf-open .cf-event small{display:block;font-size:12px;margin-top:5px;color:#e4d2bd}
+#cf-open .cf-event-info p{margin:8px 0;color:#ead7c2;font-size:12px;line-height:1.5}
+#cf-open .cf-event-seats{display:inline-block;color:#ffd17f;font-weight:800;margin-top:10px;font-size:12px}
+#cf-open .cf-event button{border:1px solid #ffb23b;border-radius:7px;background:#f5a623;color:#23170d;font-weight:800;padding:12px 16px;font-size:12px;white-space:nowrap}
+#cf-open .cf-event button:hover:not(:disabled){background:#ffca6d}
+#cf-open .cf-event button:disabled{background:#615346;border-color:#816c54;color:#d6c1a8;cursor:not-allowed}
+#cf-open .cf-empty-events{padding:19px 8px;color:#e9d7c1;font-size:13px;line-height:1.6}
+#cf-open .cf-open-selected{background:#71502f;border:1px solid #ffb44b;border-radius:9px;padding:17px;margin-bottom:14px;display:grid;gap:7px}
+#cf-open .cf-open-selected span{font-size:10px;font-weight:900;letter-spacing:.16em;color:#ffce85}
+#cf-open .cf-open-selected strong{font-size:18px;color:#fff}
+#cf-open .cf-open-selected small{font-size:13px;color:#ffe2bb}
+#cf-open .cf-open-back{margin-bottom:18px!important}
+#cf-open #cf-open-form h5{font-size:18px;color:#fff;margin:9px 0 16px}
+#cf-open #cf-open-form>label{display:block;margin-top:18px}
+@media(max-width:650px){#cf-open .cf-open-events{padding:12px}.cf-open-events-head{flex-wrap:wrap}#cf-open .cf-event{flex-direction:column;align-items:stretch;padding:13px}#cf-open .cf-event button{width:100%}}
+
+/* Participantes por evento, em uma linha própria também no celular. */
+#cf-open .cf-event{flex-wrap:wrap}
+#cf-open .cf-event-roster{flex:0 0 100%;min-width:0;border-top:1px solid #917254;padding-top:14px}
+#cf-open .cf-event-roster h6{margin:0 0 10px;font-size:13px;font-weight:800;color:#ffd17f}
+#cf-open .cf-event-roster ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
+#cf-open .cf-event-roster li{padding:10px 12px;border:1px solid #80664c;border-radius:7px;background:#49392c;overflow-wrap:anywhere}
+#cf-open .cf-event-roster li span{color:#fff;font-size:13px;font-weight:700}
+#cf-open .cf-event-roster small{font-size:11px;color:#e4d2bd}
+#cf-open .cf-event-roster p{margin:10px 0 0;color:#e4d2bd;font-size:12px;line-height:1.5}
+@media(max-width:650px){#cf-open .cf-event-roster{flex-basis:auto;width:100%}#cf-open .cf-event-roster ul{grid-template-columns:1fr}}
+
+/* Inscrição em grupo: nomes obrigatórios dos acompanhantes. */
+#cf-open .cf-companions:not([hidden]) {display:block;margin:20px 0 12px;padding:18px;border:1px solid #a3815b;border-radius:10px;background:#4a392a}
+#cf-open .cf-companions-heading h6{color:#ffcf86;font-size:14px;font-weight:800;margin:0 0 7px}
+#cf-open .cf-companions-heading p,#cf-open .cf-companions-privacy{font-size:12px;color:#e2d0bc;line-height:1.5;margin:0 0 13px}
+#cf-open .cf-required{color:#ffbe53}
+#cf-open .cf-companions-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+#cf-open .cf-companions-grid label{min-width:0;display:block;font-size:12px;font-weight:600;color:#f4e2cd}
+#cf-open .cf-companions-grid input{display:block;width:100%;margin-top:7px;min-width:0}
+#cf-open .cf-companions-privacy{margin:12px 0 0}
+@media(max-width:650px){#cf-open .cf-companions-grid{grid-template-columns:1fr}#cf-open .cf-companions:not([hidden]){padding:13px}}
+
+/* Nomes abreviados dos acompanhantes: somente para inscrições com autorização. */
+#cf-open .cf-event-roster .cf-group-people{margin-top:12px;padding-top:10px;border-top:1px dashed #8d755c}
+#cf-open .cf-event-roster .cf-group-people>strong{font-size:11px;color:#ffd28d;font-weight:800}
+#cf-open .cf-event-roster .cf-group-people ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:8px 0 0;padding:0}
+#cf-open .cf-event-roster .cf-group-people ol li{display:inline-flex;align-items:center;gap:4px;border:1px solid #a08460;border-radius:6px;background:#624c38;color:#fff7e9;padding:6px 9px;font-size:11px;font-weight:700;max-width:100%}
+#cf-open .cf-event-roster .cf-group-people em{font-style:normal;font-size:10px;color:#efceb0;font-weight:400}
+#cf-open .cf-event-roster .cf-group-private{margin-top:10px;color:#e9d3b9;font-size:11px}

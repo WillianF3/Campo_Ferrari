@@ -1,0 +1,63 @@
+/* V12.10: Botão e player explicativo dos equipamentos no padrão Campo Ferrari. */
+#duvidas .cf-faq-video-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+#duvidas .cf-faq-video-actions .faq-contact { margin-top: 0; min-height: 45px; align-items: center; }
+#duvidas .cf-faq-video-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  padding: 12px 17px;
+  border: 1px solid #ffa510;
+  border-radius: 8px;
+  background: #ffa510;
+  color: #17130b;
+  font: 750 13px/1.3 var(--cf-font-family);
+  cursor: pointer;
+  transition: background-color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+#duvidas .cf-faq-video-trigger svg { flex: none; }
+#duvidas .cf-faq-video-trigger:hover { background: #ffc15c; border-color: #ffc15c; transform: translateY(-2px); box-shadow: 0 9px 22px rgba(255,165,16,.2); }
+#duvidas .cf-faq-video-trigger:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.cf-equipment-video-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(920px, calc(100vw - 28px));
+  max-width: none;
+  max-height: calc(100dvh - 30px);
+  margin: auto;
+  padding: clamp(14px,2.5vw,26px);
+  border: 1px solid rgba(255,165,16,.52);
+  border-radius: 20px;
+  background: #211b16;
+  color: #fff9f0;
+  box-shadow: 0 25px 80px rgba(0,0,0,.68);
+  overflow: auto;
+}
+.cf-equipment-video-dialog::backdrop { background: rgba(8,7,6,.85); backdrop-filter: blur(6px); }
+.cf-equipment-video-dialog[open] { animation: cf-equipment-dialog-in .22s ease-out both; }
+.cf-video-modal-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+.cf-video-modal-kicker { display: block; color: #ffa510; font: 800 11px/1.5 var(--cf-font-family); letter-spacing: .14em; margin-bottom: 6px; }
+.cf-equipment-video-dialog h2 { margin: 0; font: 850 clamp(1.25rem,3vw,2rem)/1.13 var(--cf-font-family); letter-spacing: -.025em; color: #fff9f0; }
+.cf-video-modal-close { flex: 0 0 auto; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,165,16,.6); color: #fff; background: #342b24; font: 400 30px/1 var(--cf-font-family); cursor: pointer; transition: background .2s, transform .2s; }
+.cf-video-modal-close:hover { background: #85521b; transform: rotate(90deg); }
+.cf-video-modal-close:focus-visible { outline: 3px solid #ffa510; outline-offset: 3px; }
+.cf-equipment-video-dialog video { display: block; width: 100%; max-height: min(67dvh,620px); aspect-ratio: 16 / 9; object-fit: contain; background: #080808; border-radius: 12px; }
+.cf-equipment-video-dialog p { margin: 13px 0 0; color: #d8cec0; font: 400 12px/1.6 var(--cf-font-family); }
+@keyframes cf-equipment-dialog-in { from { opacity: 0; transform: translateY(12px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 640px) {
+  #duvidas .cf-faq-video-actions { align-items: stretch; flex-direction: column; }
+  #duvidas .cf-faq-video-actions > * { width: 100%; justify-content: center; text-align: center; }
+  .cf-equipment-video-dialog { border-radius: 14px; }
+  .cf-equipment-video-dialog video { max-height: 55dvh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cf-equipment-video-dialog[open] { animation: none; }
+  .cf-video-modal-close, #duvidas .cf-faq-video-trigger { transition: none; }
+}
